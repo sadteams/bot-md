@@ -76,6 +76,7 @@ const connectionOptions = {
   auth: state,
   logger: P({ level: 'silent'}),
   version: [2, 2204, 13]
+  browserDescription: ['Hosted by The.sad.boy01', 'Firefox', '3.0']
 }
 
 global.conn = simple.makeWASocket(connectionOptions)
