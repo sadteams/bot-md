@@ -13,7 +13,7 @@ CFonts.say('Raxcel-Bot', {
   font: 'block',
   align: 'center',
 })
-CFonts.say(`${package.name} Oleh @${package.author.name || package.author}`, {
+CFonts.say(`${package.name} Di Recode Oleh @${package.author.name || package.author}`, {
   colors: ['#f2aa4c'],
   font: 'console',
   align: 'center',
