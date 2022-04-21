@@ -1,5 +1,7 @@
 # Raxcel-bot [MD]
 
+---
+
 <a href="https://visitor-badge.glitch.me/badge?page_id=Kangsad01/bot-md"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=Kangsad01/bot-md"></a>
 <a href="https://github.com/Kangsad01/bot-md/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Kangsad01/bot-md?label=Forks&color=blue&style=flat-square"></a>
 <a href="https://github.com/Kangsad01/bot-md/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/Kangsad01/bot-md?label=Watchers&color=green&style=flat-square"></a>
