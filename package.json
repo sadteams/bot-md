@@ -1,6 +1,6 @@
 {
-    "name": "raxcel-bot MD",
-    "version": "1.21.4.2022",
+    "name": "Raxcel-MD",
+    "version": "2.2.5",
     "description": "Simple Bot WhatsApp with Baileys Multi Device",
     "depecrated": false,
     "main": "index.js",
@@ -20,15 +20,13 @@
         "whatsapp",
         "js-whatsapp",
         "whatsapp",
-        "whatsapp-bot-multi-device",
         "mybot-md",
         "family-md",
         "family-bot",
         "enjela",
         "shiraori-md",
         "stikerin",
-        "wabot-aq",
-        "raxcel-md"
+        "wabot-aq"
     ],
     "homepage": "https://github.com/Kangsad01/bot-md",
     "author": {
@@ -52,6 +50,7 @@
         "cfonts": "^2.10.0",
         "chalk": "^4.1.2",
         "cheerio": "^1.0.0-rc.10",
+        "caliph-api": "^0.7.6",
         "colors": "1.4.0",
         "express": "^4.17.3",
         "file-type": "^16.5.3",
@@ -87,6 +86,10 @@
         "url-regex-safe": "^2.1.0",
         "wa-sticker-formatter": "^4.3.2",
         "yargs": "^17.2.1",
-        "yt-search": "^2.10.2"
+        "yt-search": "^2.10.2",
+        "dhn-api": "^1.1.3",
+        "xfarr-api": "^1.0.3",
+        "yuzzu-api": "^1.0.2",
+        "hxz-api": "^1.0.1"
     }
 }
