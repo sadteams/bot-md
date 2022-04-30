@@ -37,7 +37,7 @@ node .
 ## UNTUK PENGGUNA TERMUX
 
 * Download Termux [`Klik Disini`](https://github.com/termux/termux-app/releases/download/v0.118.0/termux-app_v0.118.0+github-debug_universal.apk)
-* Download node-modules [`Klik Disini`](https://www.mediafire.com/file/noydoc0vroyr25a/bot-md.zip/file)
+* Download node_modules [`Klik Disini`](https://www.mediafire.com/file/noydoc0vroyr25a/bot-md.zip/file)
 
 ```
 $ pkg update && upgrade -y
