@@ -97,7 +97,7 @@ async function connectionUpdate(update) {
     console.log(global.reloadHandler(true))
   }
   if (global.db.data == null) await loadDatabase()
-  //console.log(JSON.stringify(update, null, 4))
+//console.log(JSON.stringify(update, null, 4))
 }
 
 

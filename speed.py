@@ -40,7 +40,7 @@ __version__ = '2.1.4b1'
 
 
 class FakeShutdownEvent(object):
-    """Class to fake a threading.Event.isSet so that users of this module
+    """Class to fake a threading.Event.isSet so that home of this module
     are not required to register their own threading.Event()
     """
 
@@ -381,7 +381,7 @@ def create_connection(address, timeout=_GLOBAL_DEFAULT_TIMEOUT,
     port)``) and return the socket object.  Passing the optional
     *timeout* parameter will set the timeout on the socket instance
     before attempting to connect.  If no *timeout* is supplied, the
-    global default timeout setting returned by :func:`getdefaulttimeout`
+    global default timeout setting returned by :fun`getdefaulttimeout`
     is used.  If *source_address* is set it must be a tuple of (host, port)
     for the socket to bind as a source address before making the connection.
     An host of '' or port 0 tells the OS to use the default.
@@ -1970,7 +1970,7 @@ def shell():
                 ((results.upload / 1000.0 / 1000.0) / args.units[1],
                  args.units[0]),
                 quiet)
-        printer("\n\n𝘼𝙜𝙪𝙯 𝙁𝙖𝙢𝙞𝙡𝙞𝙖")
+        printer("\n\nву 𝚃𝚑𝚎.𝚂𝚊𝚍.𝙱𝚘𝚢𝟶𝟷")
     else:
         printer('Skipping upload test', quiet)
 
