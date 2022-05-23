@@ -44,19 +44,15 @@ global.bodlink = '@the.sad.boy01'
 global.wait = '_*𝐬𝐞𝐝𝐚𝐧𝐠 𝐝𝐢 𝐩𝐫𝐨𝐬𝐞𝐬 ...*_'
 global.eror = '_*мααƒ ѕєяνєя тι∂αк ѕтαвιℓ..*_'
 
-//========Url Template Buttons=========//
-//global.dtux = dtu
-//global.urlx = urlnya
+//========Url Template Buttons==========//
 global.dtu = '𝑭𝒐𝒍𝒍𝒐𝒘'
 global.urlnya = "https://www.instagram.com/the.sad.boy01"
 
-//============= callButtons =============//
-//global.dtcx = dtc
-//global.nmbrx = phn
+//============= callButtons ============//
 global.dtc = '𝒄𝒂𝒍𝒍 𝒐𝒘𝒏𝒆𝒓'
 global.phn = '+62 895-3362-82144'
 
-//========== Tampilan Bot ===========//
+//========== Tampilan Bot =============//
 global.sa = '╭─'
 global.gx = '│✇'
 global.gy = '│•'
@@ -66,9 +62,6 @@ global.kki = '「'
 global.kka = '」'
 global.zt = '*'
 global.zc = ''
-global.lim ='Ⓛ'
-global.prem = 'Ⓟ'
-
 
 //============= Games ================//
 global.benar = '_*Benar✅*_'
@@ -98,7 +91,7 @@ global.rpg = {
       diamond: '💎',
       common: '📦',
       uncommon: '🎁',
-      mythi: '🗳️',
+      mythic: '🗳️',
       legendary: '🗃️',
       pet: '🎁',
       sampah: '🗑',
