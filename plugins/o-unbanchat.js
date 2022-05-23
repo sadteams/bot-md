@@ -18,13 +18,13 @@ let handler = async (m, { conn, isOwner, text, isAdmin }) => {
   try {
     if (who.endsWith('g.us')) global.db.data.chats[who].isBanned = false
     else global.db.data.users[who].banned = false
-    m.reply(`Berhasil unban! ${await conn.user.name} aktif dichat ${await conn.getName(who) == undefined ? 'ini' : await conn.getName(who)}.`)
+    conn.sendButtonDoc(m.chat, `Berhasil unban! ${await conn.user.name} aktif dichat ${await conn.getName(who) == undefined ? 'ini' : await conn.getName(who)}.`, wm, 'Owner', '.owner', m)
   } catch (e) {
     throw `nomor tidak ada didatabase!`
   }
 }
 handler.help = ['unban']
 handler.tags = ['owner', 'group']
-handler.command = /^unban(chat)?$/i
-
+handler.command = /^unban(chat)?|unbco$/i
+handler.owner = true
 module.exports = handler
