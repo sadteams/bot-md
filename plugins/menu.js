@@ -3,6 +3,8 @@ let fs = require('fs')
 let path = require('path')
 let fetch = require('node-fetch')
 let moment = require('moment-timezone')
+let jimp = require('jimp')
+let PhoneNumber = require('awesome-phonenumber')
 const defaultMenu = {
   before: `
 ┌─〔 %me 〕
@@ -21,6 +23,10 @@ const defaultMenu = {
 ├ Database: %rtotalreg dari %totalreg
 ├ Github:
 ├ %github
+│
+├ Note :
+├ *Ⓟ* = Premium
+├ *Ⓛ* = Limit
 └────
 %readmore`.trim(),
   header: '┌─〔 %category 〕',
@@ -35,7 +41,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'rpg', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'UTAMA',
@@ -63,11 +69,13 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     '': 'Tanpa Kategori',
   }
   if (teks == 'game') tags = {
-    'game': 'Game',
-    'rpg': 'RPG'
+    'game': 'Game'
   }
   if (teks == 'xp') tags = {
     'xp': 'Exp & Limit'
+  }
+  if (teks == 'rpg') tags = {
+    'rpg': 'RPG'
   }
   if (teks == 'stiker') tags = {
     'sticker': 'Stiker'
@@ -161,6 +169,30 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       minute: 'numeric',
       second: 'numeric'
     })
+    const wita = moment.tz('Asia/Makassar').format("HH:mm:ss")
+    const wit = moment.tz('Asia/Jayapura').format("HH:mm:ss")
+    const hariRaya = new Date('January 1, 2023 23:59:59')
+    const sekarang = new Date().getTime()
+    const Selisih = hariRaya - sekarang
+    const jhari = Math.floor( Selisih / (1000 * 60 * 60 * 24));
+    const jjam = Math.floor( Selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
+    const mmmenit = Math.floor( Selisih % (1000 * 60 * 60) / (1000 * 60))
+    const ddetik = Math.floor( Selisih % (1000 * 60) / 1000)
+    const hariRayaramadan = new Date('April 21, 2023 23:59:59')
+    const sekarangg = new Date().getTime()
+    const lebih = hariRayaramadan - sekarangg
+    const harii = Math.floor( lebih / (1000 * 60 * 60 * 24));
+    const jamm = Math.floor( lebih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
+    const menitt = Math.floor( lebih % (1000 * 60 * 60) / (1000 * 60))
+    const detikk = Math.floor( lebih % (1000 * 60) / 1000)
+    const ultah = new Date('August 19, 2022 23:59:59')
+    const sekarat = new Date().getTime() 
+    const Kurang = ultah - sekarat
+    const ohari = Math.floor( Kurang / (1000 * 60 * 60 * 24));
+    const ojam = Math.floor( Kurang % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
+    const onet = Math.floor( Kurang % (1000 * 60 * 60) / (1000 * 60))
+    const detek = Math.floor( Kurang % (1000 * 60) / 1000)
+    let pe = '```'
     let _uptime = process.uptime() * 1000
     let _muptime
     if (process.send) {
@@ -191,36 +223,62 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       {
         title: 'List Menu ' + namabot,
         rows: [
-          { title: 'Semua Perintah', rowId: `${_p}? all` },
-          { title: 'Game', rowId: `${_p}? game` },
-          { title: 'XP', rowId: `${_p}? xp` },
-          { title: 'Stiker', rowId: `${_p}? stiker` },
-          { title: 'Kerang Ajaib', rowId: `${_p}? kerangajaib` },
-          { title: 'Quotes', rowId: `${_p}? quotes` },
-          { title: 'Grup', rowId: `${_p}? grup` },
-          { title: 'Premium', rowId: `${_p}? premium` },
-          { title: 'Internet', rowId: `${_p}? internet` },
-          { title: 'Anonymous', rowId: `${_p}? anonymous` },
-          { title: 'Nulis & Logo', rowId: `${_p}? nulis` },
-          { title: 'Downloader', rowId: `${_p}? downloader` },
-          { title: 'Tools', rowId: `${_p}? tools` },
-          { title: 'Fun', rowId: `${_p}? fun`},
-          { title: 'Database', rowId: `${_p}? database` },
-          { title: 'Vote & Absen', rowId: `${_p}? vote` },
-          { title: "Al-Qur\'an", rowId: `${_p}? quran` },
-          { title: 'Pengubah Suara', rowId: `${_p}? audio` },
-          { title: 'Jadi Bot', rowId: `${_p}? jadibot` },
-          { title: 'Info', rowId: `${_p}? info` },
-          { title: 'Tanpa Kategori', rowId: `${_p}? tanpakategori` },
-          { title: 'Owner', rowId: `${_p}? owner` },
+          { title: 'Semua Perintah', rowId: `${_p}m all` },
+          { title: 'Game', rowId: `${_p}m game` },
+          { title: 'Rpg', rowId: `${_p}m rpg` },
+          { title: 'XP', rowId: `${_p}m xp` },
+          { title: 'Stiker', rowId: `${_p}m stiker` },
+          { title: 'Kerang Ajaib', rowId: `${_p}m kerangajaib` },
+          { title: 'Quotes', rowId: `${_p}m quotes` },
+          { title: 'Grup', rowId: `${_p}m grup` },
+          { title: 'Premium', rowId: `${_p}m premium` },
+          { title: 'Internet', rowId: `${_p}m internet` },
+          { title: 'Anonymous', rowId: `${_p}m anonymous` },
+          { title: 'Nulis & Logo', rowId: `${_p}m nulis` },
+          { title: 'Downloader', rowId: `${_p}m downloader` },
+          { title: 'Tools', rowId: `${_p}m tools` },
+          { title: 'Fun', rowId: `${_p}m fun`},
+          { title: 'Database', rowId: `${_p}m database` },
+          { title: 'Vote & Absen', rowId: `${_p}m vote` },
+          { title: "Al-Qur\'an", rowId: `${_p}m quran` },
+          { title: 'Pengubah Suara', rowId: `${_p}m audio` },
+          { title: 'Jadi Bot', rowId: `${_p}m jadibot` },
+          { title: 'Info', rowId: `${_p}m info` },
+          { title: 'Tanpa Kategori', rowId: `${_p}m tanpakategori` },
+          { title: 'Owner', rowId: `${_p}m owner` },
         ]
       }
     ]
     const listMessage = {
-      text: judul,
+      text: `
+❏ *U S E R   I N F O*
+• Nama    : *${name}*
+• Limit   : *${limit}*
+• Status  : *${global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) ? 'Owner 🗿' : 'Users ⚔️'}*
+• Premium : *${prem ? 'User Premium' : 'Gratisan'}*
+
+❏ *S T A T U S   I N F O*
+• Total User : *${rtotalreg} dari ${totalreg}*
+• Tersisa    : *${limit} Limit*
+• Role       : *${role}*
+• Level      : *${level}*
+
+❏ 𝙏𝙄𝙈𝙀
+» Wib : *${time}*
+» Tanggal : *${week} ${weton} ${date}*
+
+❏ 𝙏𝘼𝙃𝙐𝙉 𝘽𝘼𝙍𝙐
+_*${jhari} Hari ${jjam} Jam ${mmmenit} Menit ${ddetik} Detik*_
+
+❏ 𝙍𝘼𝙈𝘼𝘿𝘼𝙉
+_*${harii} Hari ${jamm} Jam ${menitt} Menit ${detikk} Detik*_
+
+❏ 𝙐𝙇𝘼𝙉𝙂 𝙏𝘼𝙃𝙐𝙉 𝙊𝙒𝙉𝙀𝙍
+_*${ohari} Hari ${ojam} Jam ${onet} Menit ${detek} Detik*_
+
+${pe}Note: Jika ada Fitur yg Error Lapor ke owner${pe}`,
       footer: wm,
-      mentions: await conn.parseMention(judul),
-      title: '',
+      title: judul,
       buttonText: "Klik Disini",
       sections
     }
@@ -248,8 +306,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '(Limit)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Premium)' : '')
+                .replace(/%islimit/g, menu.limit ? ' *Ⓛ* ' : '')
+                .replace(/%isPremium/g, menu.premium ? ' *Ⓟ* ' : '')
                 .trim()
             }).join('\n')
           }),
@@ -275,7 +333,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send3TemplateButtonImg(m.chat, fla + teks, text.trim(), wm, `🏅Owner`, `${_p}owner`, `🎖ThanksTo`, `${_p}tqto`, `🎗  Donasi  🎗`, `${_p}infobot`)
+    await conn.send3TemplateButtonImg(m.chat, fla + teks, text.trim(), wm, `🏅Owner`, `${_p}owner`, `🎖ThanksTo`, `${_p}tqto`, `🎗  Donasi  🎗`, `${_p}donasi`, m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
@@ -323,4 +381,25 @@ function ucapan() {
     res = "Selamat malam"
   }
   return res
+}
+
+async function genProfile(conn, m) {
+  let font = await jimp.loadFont('./src/font/futur.ttf'),
+    mask = await jimp.read('https://i.imgur.com/552kzaW.png'),
+    welcome = await jimp.read(global.waifu.getRandom()),
+    avatar = await jimp.read(await conn.profilePictureUrl(m.sender, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')),
+    status = (await conn.fetchStatus(m.sender).catch(console.log) || {}).status?.slice(0, 30) || 'Not Detected'
+
+    await avatar.resize(460, 460)
+    await mask.resize(460, 460)
+    await avatar.mask(mask)
+    await welcome.resize(welcome.getWidth(), welcome.getHeight())
+
+    await welcome.print(font, 550, 180, 'Name:')
+    await welcome.print(font, 650, 255, m.pushName.slice(0, 25))
+    await welcome.print(font, 550, 340, 'About:')
+    await welcome.print(font, 650, 415, status)
+    await welcome.print(font, 550, 500, 'Number:')
+    await welcome.print(font, 650, 575, PhoneNumber('+' + m.sender.split('@')[0]).getNumber('international'))
+    return await welcome.composite(avatar, 50, 170).getBufferAsync('image/png')
 }

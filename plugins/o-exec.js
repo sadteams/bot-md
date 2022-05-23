@@ -26,7 +26,19 @@ let handler = async (m, _2) => {
     if (err) _syntax = '```' + err + '```\n\n'
     _return = e
   } finally {
-    conn.reply(m.chat, _syntax + util.format(_return), m)
+    //conn.reply(m.chat, _syntax + util.format(_return), m)
+      conn.reply(m.chat, _syntax + util.format(_return), fkontak, {
+  contextInfo: { mentionedJid: [m.sender],
+    externalAdReply :{
+    mediaUrl: linkig,
+    mediaType: 2,
+    description: deslink , 
+    title: titlink,
+    body: wm, 
+    thumbnail: bg,
+    sourceUrl: linkgc
+     }}
+  })
     m.exp = old
   }
 }
