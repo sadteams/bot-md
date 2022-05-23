@@ -2,7 +2,7 @@ let handler = m => m
 handler.before = function (m) {
     let user = global.db.data.users[m.sender]
     if (user.afk > -1) {
-        this.sendButton(m.chat, `
+        this.sendTemplateButtonDoc(m.chat, img, `
 Kamu berhenti AFK${user.afkReason ? ' setelah ' + user.afkReason : ''}
 Selama ${this.clockString(new Date - user.afk)}
 `.trim(), wm, `Menu`, `.menu`, m)
@@ -16,7 +16,7 @@ Selama ${this.clockString(new Date - user.afk)}
         let afkTime = user.afk
         if (!afkTime || afkTime < 0) continue
         let reason = user.afkReason || ''
-        this.sendButton(m.chat, `
+        this.sendTemplateButtonDoc(m.chat, img, `
 Jangan tag dia!
 Dia sedang AFK ${reason ? 'dengan alasan ' + reason : 'tanpa alasan'}
 Selama ${this.clockString(new Date - afkTime)}

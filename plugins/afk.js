@@ -2,7 +2,7 @@ let handler = async(m, { conn, usedPrefix, text }) => {
     let user = global.db.data.users[m.sender]
     user.afk = + new Date
     user.afkReason = text
-    conn.sendButton(m.chat, `
+    conn.sendTemplateButtonDoc(m.chat, img, `
 ${conn.getName(m.sender)} sekarang AFK${text ? ': ' + text : ''}
 `, wm, `Menu`, `${usedPrefix}menu`, m)
 }

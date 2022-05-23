@@ -8,6 +8,7 @@ handler.before = async function (m) {
         })
         let pp = 'https://telegra.ph/file/4acb59eadbcad0093defd.png'
         let who = m.sender
+        let username = conn.getName(who)
         let discriminator = who.substring(9, 13)
         let sortedLevel = users.map(toNumber('level')).sort(sort('level'))
         let usersLevel = sortedLevel.map(enumGetKey)
@@ -30,7 +31,7 @@ handler.before = async function (m) {
                         .then(async data => {
                         	await this.sendTemplateButtonFakeImg(m.chat, data, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), wm, `Claim`, `.claim`)
                               //  conn.sendButtonLoc(m.chat, data, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), wm, `Claim`, `.claim`)
-                                //await this.sendButtonImg(m.chat, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), data, wm, 'CLAIM', ',claim', m)
+                                //await this.sendButtonImg(m.chat, `_*Level Up!*_\n\n_*Selamat ${username} Anda naik Level*_\n_${before}_ -> _${user.level}_`.trim(), data, wm, 'CLAIM', ',claim', m)
                         })
                 }
         }
