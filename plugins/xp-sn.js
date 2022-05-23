@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 }
 handler.help = ['sn']
 handler.tags = ['xp']
-handler.command = /^((cek)?sn(cek)?)$/i
+handler.command = /^((cek)?sn(cek)?|serial)$/i
 
 handler.register = true
 
