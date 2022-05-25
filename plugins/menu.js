@@ -193,6 +193,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     const onet = Math.floor( Kurang % (1000 * 60 * 60) / (1000 * 60))
     const detek = Math.floor( Kurang % (1000 * 60) / 1000)
     let pe = '```'
+    let { premium, premiumTime } = global.db.data.users[m.sender]
     let _uptime = process.uptime() * 1000
     let _muptime
     if (process.send) {
@@ -223,29 +224,29 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       {
         title: 'List Menu ' + namabot,
         rows: [
-          { title: 'Semua Perintah', rowId: `${_p}m all` },
-          { title: 'Game', rowId: `${_p}m game` },
-          { title: 'Rpg', rowId: `${_p}m rpg` },
-          { title: 'XP', rowId: `${_p}m xp` },
-          { title: 'Stiker', rowId: `${_p}m stiker` },
-          { title: 'Kerang Ajaib', rowId: `${_p}m kerangajaib` },
-          { title: 'Quotes', rowId: `${_p}m quotes` },
-          { title: 'Grup', rowId: `${_p}m grup` },
-          { title: 'Premium', rowId: `${_p}m premium` },
-          { title: 'Internet', rowId: `${_p}m internet` },
-          { title: 'Anonymous', rowId: `${_p}m anonymous` },
-          { title: 'Nulis & Logo', rowId: `${_p}m nulis` },
-          { title: 'Downloader', rowId: `${_p}m downloader` },
-          { title: 'Tools', rowId: `${_p}m tools` },
-          { title: 'Fun', rowId: `${_p}m fun`},
-          { title: 'Database', rowId: `${_p}m database` },
-          { title: 'Vote & Absen', rowId: `${_p}m vote` },
-          { title: "Al-Qur\'an", rowId: `${_p}m quran` },
-          { title: 'Pengubah Suara', rowId: `${_p}m audio` },
-          { title: 'Jadi Bot', rowId: `${_p}m jadibot` },
-          { title: 'Info', rowId: `${_p}m info` },
-          { title: 'Tanpa Kategori', rowId: `${_p}m tanpakategori` },
-          { title: 'Owner', rowId: `${_p}m owner` },
+          { title: 'Semua Perintah', rowId: `${_p + command} all` },
+          { title: 'Game', rowId: `${_p + command} game` },
+          { title: 'Rpg', rowId: `${_p + command} rpg` },
+          { title: 'XP', rowId: `${_p + command} xp` },
+          { title: 'Stiker', rowId: `${_p + command} stiker` },
+          { title: 'Kerang Ajaib', rowId: `${_p + command} kerangajaib` },
+          { title: 'Quotes', rowId: `${_p + command} quotes` },
+          { title: 'Grup', rowId: `${_p + command} grup` },
+          { title: 'Premium', rowId: `${_p + command} premium` },
+          { title: 'Internet', rowId: `${_p + command} internet` },
+          { title: 'Anonymous', rowId: `${_p + command} anonymous` },
+          { title: 'Nulis & Logo', rowId: `${_p + command} nulis` },
+          { title: 'Downloader', rowId: `${_p + command} downloader` },
+          { title: 'Tools', rowId: `${_p + command} tools` },
+          { title: 'Fun', rowId: `${_p + command} fun`},
+          { title: 'Database', rowId: `${_p + command} database` },
+          { title: 'Vote & Absen', rowId: `${_p + command} vote` },
+          { title: "Al-Qur\'an", rowId: `${_p + command} quran` },
+          { title: 'Pengubah Suara', rowId: `${_p + command} audio` },
+          { title: 'Jadi Bot', rowId: `${_p + command} jadibot` },
+          { title: 'Info', rowId: `${_p +command} info` },
+          { title: 'Tanpa Kategori', rowId: `${_p + command} tanpakategori` },
+          { title: 'Owner', rowId: `${_p + command} owner` },
         ]
       }
     ]
@@ -253,9 +254,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       text: `
 ❏ *U S E R   I N F O*
 • Nama    : *${name}*
+• Number  : *${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}*
 • Limit   : *${limit}*
 • Status  : *${global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) ? 'Owner 🗿' : 'Users ⚔️'}*
-• Premium : *${prem ? 'User Premium' : 'Gratisan'}*
+• Premium : *${premium ? `${conn.msToDate(premiumTime - new Date() * 1)}` : 'Gratisan'}*
 
 ❏ *S T A T U S   I N F O*
 • Total User : *${rtotalreg} dari ${totalreg}*
