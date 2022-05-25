@@ -2,8 +2,8 @@ let moment = require('moment-timezone')
 let fs = require('fs')
 let fetch = require('node-fetch')
 let handler = async (m, { conn, command }) => {
-let img1 = fs.readFileSync('./src/img1.png')
-let img2 = fs.readFileSync('./src/img2.png')
+//let img1 = fs.readFileSync('./src/img1.png')
+//let img2 = fs.readFileSync('./src/img2.png')
 let user = global.DATABASE.data.users[m.sender]
 /*conn.sendFile(m.chat, img, '', `Halo juga kak ${conn.getName(m.sender)}`, { key: { fromMe: false, remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { message: `${ucapan()} ${conn.getName(m.sender)}`, itemCount: 999, thumbnail: fs.readFileSync('./src/mikey.jpg')
 }}})*/
@@ -38,7 +38,7 @@ runtime = process.uptime()
                             surface : 1,
                             message: `${teks}\n${run}`, //Kasih namalu
                             orderTitle: `${teks}\n${run}`,
-                            thumbnail: fs.readFileSync('./src/img.png'), //Gambarnye
+                            thumbnail: bg, //Gambarnye
                             sellerJid: '0@s.whatsapp.net' 
                           }
                         }
