@@ -76,7 +76,7 @@ const connectionOptions = {
   auth: state,
   logger: P({ level: 'silent'}),
   version: [2, 2204, 13],
-  browser: ['Hosted By The.sad.boy01', 'IOS', '4.1.0']
+  browser: ['In Hosting By The.sad.boy01', 'IOS', '4.1.0']
 }
 
 global.conn = simple.makeWASocket(connectionOptions)
