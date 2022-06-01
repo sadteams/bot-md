@@ -1,3 +1,10 @@
+/*//////////////////////////////////
+
+Cretor : Hairul Lana
+https://github.com/hairullana 
+
+/*////////////////////////////////*/
+
 let handler = async (m, { conn, text }) => {
 	if(isNaN(text)) {
   	var number = text.split`@`[1]
@@ -5,18 +12,8 @@ let handler = async (m, { conn, text }) => {
   	var number = text
   }
 
-  const format = num => {
-    const n = String(num),
-          p = n.indexOf('.')
-    return n.replace(
-        /\d(?=(?:\d{3})+(?:\.|$))/g,
-        (m, i) => p < 0 || i < p ? `${m},` : m
-    )
-  }
-
   if(!text && !m.quoted) return conn.reply(m.chat, `Masukan nomor, tag atau balas pesan target.`, m)
-  // let exists = await conn.isOnWhatsApp(number)
-  // if (exists) return conn.reply(m.chat, `*Nomor target tidak terdaftar di WhatsApp*`, m)
+  
   if(isNaN(number)) return conn.reply(m.chat, `Nomor yang anda masukan salah!`, m)
   if(number.length > 15) return conn.reply(m.chat, `Format salah!`, m)
   try {
@@ -31,7 +28,7 @@ let handler = async (m, { conn, text }) => {
   } finally {
     let groupMetadata = m.isGroup ? await conn.groupMetadata(m.chat) : {}
     let participants = m.isGroup ? groupMetadata.participants : []
-    let users = m.isGroup ? participants.find(u => u.jid == user) : {}
+    let users = m.isGroup ? participants.find(u => u.id == user) : {}
     if(!users) return conn.reply(m.chat, `Target atau Nomor tidak ditemukan, mungkin sudah keluar atau bukan anggota grup ini.`, m)
     if(user === m.sender) return conn.reply(m.chat, `Tidak bisa berpacaran dengan diri sendiri!`, m)
     if(user === conn.user.jid) return conn.reply(m.chat, `*Tidak bisa berpacaran dengan saya t_t`, m)
@@ -48,7 +45,7 @@ let handler = async (m, { conn, text }) => {
     }
 	}	
 }
-handler.help = ['tolak @tag']
+handler.help = ['tolak *@tag*']
 handler.tags = ['jadian']
 handler.command = /^(tolak)$/i
 handler.mods = false
