@@ -1,4 +1,4 @@
-# Raxcel-bot [MD]
+# [Raxcel-bot MD](https://wa.me/6282140373458)
 
 ---
 
