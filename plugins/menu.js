@@ -384,6 +384,8 @@ function ucapan() {
   return res
 }
 
+//By fahri adison = https://github.com/FahriAdison
+
  async function genProfile(conn, m) {
   let font = await jimp.loadFont('./name.fnt'),
     mask = await jimp.read('https://i.imgur.com/552kzaW.png'),
