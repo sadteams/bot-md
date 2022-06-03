@@ -43,6 +43,26 @@ Buka Console
 -------------
 Click Run
 ```
+## FOR OKTETO
+
+* Okteto [`Click Here`](https://okteto.com)
+
+```bash
+Login with your github
+Click Launch Dev Environment
+Choose your repo
+```
+
+
+---------
+
+## PANEL/RDP/VPS
+
+* Amiruldev [`Click Here`](https://www.amiruldev.my.id)
+
+
+---------
+
 
 ## UNTUK PENGGUNA WINDOWS/VPS/RDP
 
