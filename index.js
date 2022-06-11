@@ -8,12 +8,12 @@ const Readline = require('readline')
 const yargs = require('yargs/yargs')
 const rl = Readline.createInterface(process.stdin, process.stdout)
 
-CFonts.say('Family-Bot', {
+CFonts.say('Bot-md', {
   colors: ['#f2aa4c'],
   font: 'block',
   align: 'center',
 })
-CFonts.say(`${package.name} Oleh @${package.author.name || package.author}`, {
+CFonts.say(`${package.name} Dibuat Oleh @${package.author.name || package.author}`, {
   colors: ['#f2aa4c'],
   font: 'console',
   align: 'center',
