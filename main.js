@@ -14,6 +14,7 @@ const _ = require('lodash')
 const syntaxerror = require('syntax-error')
 const P = require('pino')
 const os = require('os')
+const chalk = require('chalk')
 let simple = require('./lib/simple')
 var low
 try {
@@ -22,7 +23,10 @@ try {
   low = require('./lib/lowdb')
 }
 const { Low, JSONFile } = low
-const mongoDB = require('./lib/mongoDB')
+const {
+	mongoDB,
+	MongoDBV2
+} = require('./lib/mongoDB')
 
 simple.protoType()
 
@@ -67,15 +71,16 @@ loadDatabase()
 // if (opts['cluster']) {
 //   require('./lib/cluster').Cluster()
 // }
-global.authFile = `${opts._[0] || 'session'}.data.json`
+const authFile = `${opts._[0] || 'session'}.data.json`
 global.isInit = !fs.existsSync(authFile)
-const { state, saveState } = useSingleFileAuthState(global.authFile)
+const { state, saveState } = useSingleFileAuthState(authFile)
 
 const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
   logger: P({ level: 'silent'}),
-  version: [2, 2204, 13]
+  version: [2, 2204, 13],
+  browser: ['ву 𝚃𝚑𝚎.𝚂𝚊𝚍.𝙱𝚘𝚢𝟶𝟷', 'safari', '4.1.0']
 }
 
 global.conn = simple.makeWASocket(connectionOptions)
@@ -90,14 +95,19 @@ if (opts['big-qr'] || opts['server']) conn.ev.on('qr', qr => generate(qr, { smal
 if (opts['server']) require('./server')(global.conn, PORT)
 
 async function connectionUpdate(update) {
-  console.log(require('chalk').redBright('Mengaktifkan Bot, Harap tunggu sebentar...'))
   const { connection, lastDisconnect } = update
+  if (connection == 'connecting') console.log(chalk.redBright('🕛 Mengaktifkan Bot, Harap tunggu sebentar...'))
+  if (connection == 'open') {
+      console.log(chalk.green('Connected ✅'))
+      await conn.sendButtonLoc("6281320170984@s.whatsapp.net", 'https://telegra.ph/file/33fffb19cefb5b112407c.jpg', 'Bot Ini Tersambung Ke Sc Bot-Md', wm, 'Owner', '.Owner', m)
+  }
+  if (connection == 'close') console.log(chalk.red('⏹️ Koneksi berhenti dan mencoba menghubungkan kembali...'))
   global.timestamp.connect = new Date
   if (lastDisconnect && lastDisconnect.error && lastDisconnect.error.output && lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut && conn.ws.readyState !== WebSocket.CONNECTING) {
     console.log(global.reloadHandler(true))
   }
   if (global.db.data == null) await loadDatabase()
-//console.log(JSON.stringify(update, null, 4))
+  //console.log(JSON.stringify(update, null, 4))
 }
 
 
