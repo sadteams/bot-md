@@ -658,8 +658,10 @@ module.exports = {
                                 namegb: await this.getName(id),
                                 member: groupMetadata.participants.length
                             })
-                            await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'the.sad.boy01', fkontak,{
-  contextInfo: { externalAdReply :{
+                            /*await this.send3TemplateButtonImg(id, action === 'add' ? wel : lea, text, wm, action === 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'FokusID')*/
+   await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'the.sad.boy01', fkontak,{
+  contextInfo: {mentionedJid: [user],
+    externalAdReply :{
     mediaUrl: linkig,
     mediaType: 2,
     description: deslink , 
@@ -712,14 +714,14 @@ module.exports = {
             //await this.sendMessage(id, { text, mentions: this.parseMention(text) })
         }
     },
-    async delete({ remoteJid, fromMe, id, participant }) {
+    async delete({ fromMe, id, participant }) {
         if (fromMe) return
         let chats = Object.entries(conn.chats).find(([user, data]) => data.messages && data.messages[id])
         if (!chats) return
         let msg = JSON.parse(chats[1].messages[id])
-        let chat = global.db.data.chats[msg.key.remoteJid] || {}
+        let chat = global.db.data.chats[msg.chat] || {}
         if (chat.delete) return
-        this.sendButton(msg.key.remoteJid, `
+        this.sendButton(msg.chat, `
 Terdeteksi @${participant.split`@`[0]} telah menghapus pesan
 Untuk mematikan fitur ini, ketik
 *.enable delete*
@@ -727,7 +729,7 @@ Untuk mematikan fitur ini, ketik
             mentions: [participant]
         })
         await this.delay(1000)
-        this.copyNForward(msg.key.remoteJid, msg).catch(e => console.log(e, msg))
+        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
     }
 }
 
@@ -804,7 +806,7 @@ function clockString(ms) {
   }
 
 function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
+  return list[Math.floor(Math.random() * list.length)]
 }
 
 global.thumb = 'https://telegra.ph/file/61f2d6d9694b49a2ce7aa.jpg'

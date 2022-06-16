@@ -1,6 +1,6 @@
 {
-    "name": "Bot-MD",
-    "version": "3.2.0",
+    "name": "Raxcel-MD",
+    "version": "2.2.5",
     "description": "Simple Bot WhatsApp with Baileys Multi Device",
     "depecrated": false,
     "main": "index.js",
@@ -23,8 +23,6 @@
         "mybot-md",
         "family-md",
         "family-bot",
-        "raxcel-md",
-        "bot-md",
         "enjela",
         "shiraori-md",
         "stikerin",
@@ -92,7 +90,7 @@
         "wa-sticker-formatter": "^4.3.2",
         "xfarr-api": "^1.0.3",
         "yargs": "^17.2.1",
-        "yuzzu-api": "^1.0.2",
-        "yt-search": "^2.10.2"
+        "yt-search": "^2.10.2",
+        "yuzzu-api": "^1.0.2"
     }
 }
