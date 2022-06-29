@@ -2,8 +2,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
   let isEnable = /true|enable|(turn)?on|1/i.test(command)
   let chat = db.data.chats[m.chat]
   let user = db.data.users[m.sender]
-  let setting = db.data.settings[this.user.jid]
-  let set = db.data.settings[this.user.jid]
+  let setting = db.data.settings[conn.user.jid]
+  let set = db.data.settings[conn.user.jid]
   let type = (args[0] || '').toLowerCase()
   let isAll = false
   let isUser = false
@@ -300,9 +300,16 @@ ${usedPrefix}off welcome
 `.trim()
       throw false
   }
-  m.reply(`
-*${type}* berhasil di *${isEnable ? 'nyala' : 'mati'}kan* ${isAll ? 'untuk bot ini' : isUser ? '' : 'untuk chat ini'}
-`.trim())
+ conn.reply(m.chat, ` *${type}* berhasil di *${isEnable ? 'nyala' : 'mati'}kan* ${isAll ? 'untuk bot ini' : isUser ? '' : 'untuk chat ini'} `, m, { contextInfo: { externalAdReply :{
+    mediaUrl: 'https://github.com/Kangsad01',
+    mediaType: 2,
+    description: deslink, 
+    title: titlink,
+    body: wm,
+    thumbnail: await(await fetch(img)).buffer(),
+    sourceUrl: 'https://github.com/Kangsad01'
+     }}
+  })
 }
 handler.help = ['on', 'off'].map(v => v + ' <opsi>')
 handler.tags = ['group', 'owner']
