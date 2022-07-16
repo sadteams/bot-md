@@ -193,3 +193,5 @@ conn.logger.level = 'debug'
 [![Amelia Lisa](https://github.com/Ameliascrf.png?size=100)](https://github.com/Ameliascrf)
 [![𝚃𝚑𝚎.𝚂𝚊𝚍.𝙱𝚘𝚢𝟶𝟷](https://github.com/Kangsad01.png?size=100)](https://github.com/Kangsad01)
 [![bot xtrehse](https://github.com/xtreshebot.png?size=100)](https://github.com/xtreshebot)
+[![Madexyz](https://github.com/Madexyz.png?size=100)](https://github.com/Madexyz)
+[![sadteams](https://github.com/sadteams.png?size=100)](https://github.com/sadteams)
