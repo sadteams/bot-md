@@ -1,16 +1,16 @@
-# [Raxcel-bot MD](https://wa.me/6282140373458)
+# Raxcel-bot MD
 
 ---
 
 <a href="https://visitor-badge.glitch.me/badge?page_id=Kangsad01/bot-md"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=Kangsad01/bot-md"></a>
-<a href="https://github.com/Kangsad01/bot-md/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Kangsad01/bot-md?label=Forks&color=blue&style=flat-square"></a>
-<a href="https://github.com/Kangsad01/bot-md/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/Kangsad01/bot-md?label=Watchers&color=green&style=flat-square"></a>
-<a href="https://github.com/Kangsad01/bot-md/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/Kangsad01/bot-md?label=Stars&color=yellow&style=flat-square"></a>
-<a href="https://github.com/Kangsad01/bot-md/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/Kangsad01/bot-md?label=Contributors&color=blue&style=flat-square"></a>
-<a href="https://github.com/Kangsad01/bot-md/issues"><img title="Issues" src="https://img.shields.io/github/issues/Kangsad01/bot-md?label=Issues&color=success&style=flat-square"></a>
-<a href="https://github.com/Kangsad01/bot-md/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/Kangsad01/bot-md?label=Issues&color=red&style=flat-square"></a>
-<a href="https://github.com/Kangsad01/bot-md/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/Kangsad01/bot-md?label=PullRequest&color=success&style=flat-square"></a>
-<a href="https://github.com/Kangsad01/bot-md/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/Kangsad01/bot-md?label=PullRequest&color=red&style=flat-square"></a>
+<a href="https://github.com/sadteams/bot-md/network/members"><img title="Forks" src="https://img.shields.io/github/forks/sadteams/bot-md?label=Forks&color=blue&style=flat-square"></a>
+<a href="https://github.com/sadteams/bot-md/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/sadteams/bot-md?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/sadteams/bot-md/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/sadteams/bot-md?label=Stars&color=yellow&style=flat-square"></a>
+<a href="https://github.com/sadteams/bot-md/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/sadteams/bot-md?label=Contributors&color=blue&style=flat-square"></a>
+<a href="https://github.com/sadteams/bot-md/issues"><img title="Issues" src="https://img.shields.io/github/issues/sadteams/bot-md?label=Issues&color=success&style=flat-square"></a>
+<a href="https://github.com/sadteams/bot-md/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/sadteams/bot-md?label=Issues&color=red&style=flat-square"></a>
+<a href="https://github.com/sadteams/bot-md/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/sadteams/bot-md?label=PullRequest&color=success&style=flat-square"></a>
+<a href="https://github.com/sadteams/bot-md/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/sadteams/bot-md?label=PullRequest&color=red&style=flat-square"></a>
 
 ## Join Group Diskusi
 [![BOT DISCUSSION GROUP](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Fm6gRtvuCDN9abXVlfekAK) 
@@ -19,7 +19,7 @@
 
 ## UNTUK PENGGUNA HEROKU
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Kangsad01/bot-md)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sadteams/bot-md)
 
 ### Instal Buildpack
 * heroku/nodejs
@@ -28,11 +28,11 @@
 
 ## UNTUK PENGGUNA RAILWAY
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FKangsad01%2Fbot-md)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Fsadteams%2Fbot-md)
 
 ## UNTUK PENGGUNA REPLIT
 
-[![Run on Repl.it](https://repl.it/badge/github/FadliDarmawan/haruno)](https://repl.it/github/Kangsad01/bot-md)
+[![Run on Repl.it](https://repl.it/badge/github/FadliDarmawan/haruno)](https://repl.it/github/sadteams/bot-md)
 ```cmd
 Buka Console
 ------------
@@ -72,7 +72,7 @@ Choose your repo
 * Unduh & Instal ImageMagick [`Klik Disini`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/Kangsad01/bot-md
+git clone https://github.com/sadteams/bot-md
 cd bot-md
 npm i
 node .
@@ -89,7 +89,7 @@ $ apt update && upgrade -y
 $ pkg install ffmpeg
 $ pkg install nodejs-lts
 $ pkg install git
-$ git clone https://github.com/Kangsad01/bot-md
+$ git clone https://github.com/sadteams/bot-md
 $ cd bot-md
 $ npm i
 $ node .
@@ -188,6 +188,7 @@ conn.logger.level = 'debug'
 [![Fokus ID](https://github.com/fokusdotid.png?size=100)](https://github.com/fokusdotid)
 [![Aniq](https://github.com/aniq12.png?size=100)](https://github.com/aniq12)
 [![Rasel Comel](https://github.com/raselcomel.png?size=100)](https://github.com/raselcomel)
+[![Aiinne](https://github.com/aiinne.png?size=100)](https://github.com/aiinne)
 [![Amirul Dev](https://github.com/amiruldev20.png?size=100)](https://github.com/amiruldev20)
 [![Amelia Lisa](https://github.com/Ameliascrf.png?size=100)](https://github.com/Ameliascrf)
 [![𝚃𝚑𝚎.𝚂𝚊𝚍.𝙱𝚘𝚢𝟶𝟷](https://github.com/Kangsad01.png?size=100)](https://github.com/Kangsad01)
