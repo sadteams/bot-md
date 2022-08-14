@@ -41,7 +41,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'rpg', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'rpg', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'asupan', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'UTAMA',
@@ -59,6 +59,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'downloader': 'Downloader',
     'tools': 'Tools',
     'fun': 'Fun',
+    'asupan': 'Asupan',
     'database': 'Database',
     'vote': 'Voting',
     'absen': 'Absen',
@@ -109,6 +110,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   }
   if (teks == 'fun') tags = {
     'fun': 'Fun'
+  }
+  if (teks == 'asupan') tags = {
+    'asupan': 'Asupan'
   }
   if (teks == 'database') tags = {
     'database': 'Database'
@@ -239,6 +243,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           { title: 'Downloader', rowId: `${_p + command} downloader` },
           { title: 'Tools', rowId: `${_p + command} tools` },
           { title: 'Fun', rowId: `${_p + command} fun`},
+          { title: 'Asupan', rowId: `${_p + command} asupan`},
           { title: 'Database', rowId: `${_p + command} database` },
           { title: 'Vote & Absen', rowId: `${_p + command} vote` },
           { title: "Al-Qur\'an", rowId: `${_p + command} quran` },
