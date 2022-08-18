@@ -41,5 +41,5 @@ handler.help = ["simulate <event> [@mention]"];
 handler.tags = ["owner"];
 
 handler.command = /^(simulate|simulasi)$/i;
-handler.owner = true;
+
 module.exports = handler;

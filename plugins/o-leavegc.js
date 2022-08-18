@@ -5,7 +5,7 @@ let handler = async (m, { conn, args, command }) => {
         }
 handler.help = ['leavegc', 'out']
 handler.tags = ['owner']
-handler.command = /^(out|leavegc)$/i
+handler.command = /^(out|leavegc|botout)$/i
 
 handler.owner = true
 handler.group = true

@@ -7,7 +7,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     try {
         let packName = args[0].replace("https://t.me/addstickers/", "")
         let gas = await fetch(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getStickerSet?name=${encodeURIComponent(packName)}`, { method: "GET", headers: { "User-Agent": "GoogleBot" } })
-        if (!gas.ok) throw m.reply(eror)
+        if (!gas.ok) throw m.reply(data.eror)
         let json = await gas.json()
         m.reply(`*Total stiker:* ${json.result.stickers.length}
 *Estimasi selesai:* ${json.result.stickers.length * 1} detik`.trim())
@@ -17,12 +17,24 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
             let jisin = await gasIn.json()
             let stiker = await sticker(false, "https://api.telegram.org/file/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/" + jisin.result.file_path)
             let sel = await webp2png(stiker)
-            await conn.sendStimg(m.chat, sel, null, { packname: global.packname, author: global.author })
+            await conn.sendStimg(m.chat, sel, null, { packname: global.packname, author: global.author, 
+  contextInfo: { mentionedJid: [m.sender],
+    externalAdReply :{
+    showAdAttribution: true,
+    mediaUrl: data.sc,
+    mediaType: 2,
+    description: data.scdeslink , 
+    title: run,
+    body: wm,
+    thumbnail: await(await fetch(img)).buffer(),
+    sourceUrl: data.sc
+     }}
+  })
             await delay(500)
         }
         m.reply('_*Selesai*_')
     } catch {
-        m.reply(eror)
+        m.reply(data.eror)
     }
 }
 handler.help = ['stickertele <url>']

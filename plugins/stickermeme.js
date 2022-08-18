@@ -9,7 +9,19 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let img = await q.download()
     let url = await uploadImage(img)
     let meme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${url}`
-    conn.sendStimg(m.chat, meme, m, { packname: packname, author: author })
+    conn.sendStimg(m.chat, meme, m, { packname: packname, author: author, 
+  contextInfo: { mentionedJid: [m.sender],
+    externalAdReply :{
+    showAdAttribution: true,
+    mediaUrl: data.sc,
+    mediaType: 2,
+    description: data.deslink , 
+    title: run,
+    body: wm,
+    thumbnail: bg,
+    sourceUrl: data.sc
+     }}
+  })
 
 }
 handler.help = ['stickermeme <teks>|<teks>']

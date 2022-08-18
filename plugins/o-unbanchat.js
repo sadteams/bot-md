@@ -27,4 +27,5 @@ handler.help = ['unban']
 handler.tags = ['owner', 'group']
 handler.command = /^unban(chat)?|unbco$/i
 handler.owner = true
+handler.admin = false
 module.exports = handler

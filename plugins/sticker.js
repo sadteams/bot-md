@@ -1,64 +1,52 @@
-const { sticker } = require('../lib/sticker')
-const WSF = require('wa-sticker-formatter')
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-  let stiker = false
-  let wsf = false
-  try {
-    let q = m.quoted ? m.quoted : m
-    let mime = (q.msg || q).mimetype || ''
+let { webp2png } = require('../lib/webp2mp4')
+let handler = async (m, { conn, usedPrefix, command, text, args }) => {
+    //try {
+    var q = m.quoted ? m.quoted : m
+    if(!q) throw `Kirim atau balas media dengan caption *${usedPrefix}${command}*\nnote: video maksimal 10 detik`
+    var mime = (q.msg || q).mimetype || ''
+    try {
     if (/webp/.test(mime)) {
-      let img = await q.download()
-      if (!img) throw `balas stiker dengan perintah ${usedPrefix + command}`
-      wsf = new WSF.Sticker(img, {
-        pack: global.packname,
-        author: global.author,
-        crop: false,
-      })
-    } else if (/image/.test(mime)) {
-      let img = await q.download()
-      if (!img) throw `balas gambar dengan perintah ${usedPrefix + command}`
-      wsf = new WSF.Sticker(img, {
-        pack: global.packname,
-        author: global.author,
-        crop: false,
-      })
-    } else if (/video/.test(mime)) {
-      if ((q.msg || q).seconds > 11) throw 'Maksimal 10 detik!'
-      let img = await q.download()
-      if (!img) throw `balas video dengan perintah ${usedPrefix + command}`
-      wsf = new WSF.Sticker(img, {
-        pack: global.packname,
-        author: global.author,
-        crop: true,
-      })
-    } else if (args[0]) {
-      if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author)
-      else throw 'URL tidak valid!'
-    }
-  } catch (e) {
-    throw e
-  }
-  finally {
-    if (wsf) {
-      await wsf.build()
-      const sticBuffer = await wsf.get()
-      if (sticBuffer) await conn.sendMessage(m.chat, { sticker: sticBuffer }, {
-        quoted: m,
-        mimetype: 'image/webp',
-        ephemeralExpiration: 86400
-      })
-    }
-    if (stiker) await conn.sendMessage(m.chat, { sticker: stiker }, {
-      quoted: m,
-      mimetype: 'image/webp',
-      ephemeralExpiration: 86400
-    })
-    // else throw `Gagal${m.isGroup ? ', balas gambarnya!' : ''}`
+        var med = await q.download()
+        //var med = await webp2png(ras)
+        var sel = med
+        //conn.sendStimg(m.chat, sel, m, { packname: packname, author: author })
+        }
+    else if (/image/.test(mime)) {
+        var med = await q.download()
+        var sel = med
+        //conn.sendStimg(m.chat, sel, m, { packname: packname, author: author })
+        }
+    else if (/video/.test(mime)) {
+        var med = await q.download()
+        var sel = med
+        //conn.sendStimg(m.chat, sel, m, { packname: packname, author: author })
+        }
+    else if(isUrl) { 
+        var url = `${args[0]}`
+        var sel = url
+        //conn.sendStimg(m.chat, sel, m, { packname: packname, author: author })
+        }
+    } finally {
+        if(sel) conn.sendStimg(m.chat, sel, m, { packname: packname, author: author, 
+  contextInfo: { mentionedJid: [m.sender],
+    externalAdReply :{
+    showAdAttribution: true,
+    mediaUrl: data.sc,
+    mediaType: 2,
+    description: data.deslink, 
+    title: run,
+    body: wm,
+    thumbnail: await(await fetch(img)).buffer(),
+    sourceUrl: data.sc
+     }}
+  })
+        else throw `Kirim atau balas media dengan caption *${usedPrefix}${command}*\nnote: video maksimal 10 detik`
+       //throw e //`Kirim atau balas media dengan caption *${usedPrefix}${command}*\nnote: video maksimal 10 detik`
   }
 }
-handler.help = ['stiker', 'stiker <url>']
+handler.help = ['sticker <reply/send media>']
 handler.tags = ['sticker']
-handler.command = /^s(tic?ker)?(gif)?(wm)?$/i
+handler.command = /^(s(tic?k(er)?)?(gif)?(video)?)$/i
 
 module.exports = handler
 

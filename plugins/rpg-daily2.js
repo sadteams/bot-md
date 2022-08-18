@@ -50,7 +50,7 @@ function button(teks, user) {
     let weekly = new Date - user.lastweekly > 604800000
     console.log({claim, monthly, weekly})
     
-    if (monthly) buttons.push({buttonId: `.monthly`, buttonText: {displayText: 'BUANAN'}, type: 1})
+    if (monthly) buttons.push({buttonId: `.monthly`, buttonText: {displayText: 'BULANAN'}, type: 1})
     if (weekly) buttons.push({buttonId: `.weekly`, buttonText: {displayText: 'MINGGUAN'}, type: 1})
     if (claim) buttons.push({buttonId: `.claim2`, buttonText: {displayText: 'HARIAN2'}, type: 1})
     if (buttons.length == 0) throw teks

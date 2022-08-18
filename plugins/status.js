@@ -47,7 +47,7 @@ let handler = async(m, { conn, command, usedPrefix, DevMode }) => {
         await conn.reply(m.chat, `_Testing ${command }..._`, m)
         let _ramTotal = (ramTotal + ' MB')
         let neww = performance.now()
-        conn.sendButtonLoc(m.chat,  await(await require('node-fetch')(fla + `${command }`)).buffer(), `
+        conn.sendButtonLoc(m.chat, col, `
 *「 Status 」*
 
 OS : *${OS}*

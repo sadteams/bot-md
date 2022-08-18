@@ -20,12 +20,23 @@ let handler = async (m, { conn, args }) => {
     m.reply(e + '')
     res = await tts(text)
   } finally {
-    conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
+    conn.sendFile(m.chat, res, 'tts.opus', null, m, true, { contextInfo: { externalAdReply :{
+        showAdAttribution: true,
+        mediaUrl: data.sc,
+        mediaType: 2,
+        description: data.deslink, 
+        title: run,
+        body: wm,
+        thumbnail: bg,
+        sourceUrl: data.sc
+        }}
+       })
   }
 }
 handler.help = ['tts <lang> <teks>']
 handler.tags = ['tools']
 handler.command = /^g?tts$/i
+handler.limit = true
 module.exports = handler
 
 function tts(text, lang = 'id') {

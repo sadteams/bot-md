@@ -7,7 +7,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     var jumlahHari = 86400000 * args[0]
     var now = new Date() * 1
     
-    conn.reply(m.chat, `*${kki} ᴇxᴘɪʀᴇᴅ ${kka}*
+    conn.reply(m.chat, `*${data.kki} ᴇxᴘɪʄ1�7ᴇᴅ ${data.kka}*
 ${msToDate(global.db.data.chats[who].expired - now)}`, m)
 }
 handler.help = ['cekexpired']
@@ -26,6 +26,6 @@ function msToDate(ms) {
     let minutes = Math.floor((hoursms) / (60 * 1000));
     let minutesms = ms % (60 * 1000);
     let sec = Math.floor((minutesms) / (1000));
-    return days + " Days ☀️\n" + hours + " Hours 🕐\n" + minutes + " Minute ⏰";
+    return days + " Days ☄1�7️\n" + hours + " Hours 🕐\n" + minutes + " Minute ⏄1�7";
     // +minutes+":"+sec;
 }
