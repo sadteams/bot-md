@@ -11,11 +11,11 @@ handler.before = async function (m) {
   if (['.suka', 'Bantuan', ''].includes(m.text)) return !0
   if (m.text.toLowerCase() == json.jawaban.toLowerCase()) {
     global.db.data.users[m.sender].exp += this.susunkata[id][2]
-    this.sendButton(m.chat, benar + ` +${this.susunkata[id][2]} XP`, wm, 'Lagi?', '.susunkata', m)
+    this.sendButton(m.chat, data.benar + ` +${this.susunkata[id][2]} XP`, wm, 'Lagi?', '.susunkata', m)
     clearTimeout(this.susunkata[id][3])
     delete this.susunkata[id]
-  } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold) this.sendButton(m.chat, dikit, wm, 'Bantuan', '.suka', m)
-  else this.sendButton(m.chat, salah, wm, 'Bantuan', '.suka', m)
+  } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold) this.sendButton(m.chat, data.dikit, wm, 'Bantuan', '.suka', m)
+  else this.sendButton(m.chat, data.salah, wm, 'Bantuan', '.suka', m)
   }
   return !0
 }

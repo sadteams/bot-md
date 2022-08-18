@@ -22,7 +22,7 @@ ${usedPrefix}math hard
     await conn.reply(m.chat, `Berapa hasil dari *${math.str}*?\n\nTimeout: ${(math.time / 1000).toFixed(2)} detik\nBonus Jawaban Benar: ${math.bonus} XP`, m),
     math, 4,
     setTimeout(async () => {
-      if (conn.math[id]) await this.sendButton(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, '', `${math.mode.toUpperCase()}`, `.math ${math.mode}`, conn.math[id][0])
+      if (conn.math[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, '', `${math.mode.toUpperCase()}`, `.math ${math.mode}`, conn.math[id][0])
       delete conn.math[id]
     }, math.time)
   ]

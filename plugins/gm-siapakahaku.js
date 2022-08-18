@@ -20,7 +20,7 @@ Ketik ${usedPrefix}who untuk bantuan
 Bonus: ${poin} XP
     `.trim()
     conn.siapakahaku[id] = [
-    await conn.sendButtonImg(m.chat, await (await fetch(fla + 'Siapakah Aku?')).buffer(), caption, wm, 'Bantuan', usedPrefix + 'who', m),
+    await conn.sendButtonLoc(m.chat, await conn.resize(fla + 'SiapakahAku', 280, 210), caption, wm, 'Bantuan', usedPrefix + 'who', m),
     json,
     poin,
     setTimeout(() => {

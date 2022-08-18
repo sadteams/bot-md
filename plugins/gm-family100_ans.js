@@ -12,7 +12,7 @@ module.exports = {
         if (!isSurrender) {
             let index = room.jawaban.findIndex(v => v.toLowerCase().replace(/[^\w\s\-]+/, '') === text)
             if (index < 0) {
-                if (Math.max(...room.jawaban.filter((_, index) => !room.terjawab[index]).map(jawaban => similarity(jawaban, text))) >= threshold) this.reply(m.chat, dikit, m)
+                if (Math.max(...room.jawaban.filter((_, index) => !room.terjawab[index]).map(jawaban => similarity(jawaban, text))) >= threshold) this.reply(m.chat, data.dikit, m)
                 return !0
             }
             if (room.terjawab[index]) return !0

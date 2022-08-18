@@ -21,7 +21,7 @@ Terdapat *${json.jawaban.length}* jawaban${json.jawaban.find(v => v.includes(' '
     `.trim()
     this.game[id] = {
         id,
-        msg: await this.sendButtonImg(m.chat, await (await fetch(fla + 'Family 100')).buffer(), caption, wm, 'NYERAH', 'surrender', m),
+        msg: await this.sendButtonLoc(m.chat, await (await fetch(fla + 'Family 100')).buffer(), caption, wm, 'NYERAH', 'surrender', m),
         ...json,
         terjawab: Array.from(json.jawaban, () => false),
         winScore,

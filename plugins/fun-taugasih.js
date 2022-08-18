@@ -1,6 +1,6 @@
 let handler = async (m, { conn, usedPrefix }) => {
- // conn.reply(m.chat,`“${pickRandom(global.taugasih)}”`, m)
-conn.sendButtonDoc(m.chat, `“${pickRandom(global.taugasih)}”`, wm, 'Menu', '.menu', m)
+ 
+conn.sendButtonDoc(m.chat, `“${pickRandom(taugasih)}”`, wm, 'Menu', '.menu', m)
 }
 handler.help = ['taugasih']
 handler.tags = ['fun']
@@ -21,7 +21,7 @@ function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
 }
 
-global.taugasih= [
+let taugasih= [
 "Tahukah Anda seekor capung bisa terbang dengan kecepatan 40kph (25mph)",
 "Tahukah Anda bahwa semua burung hantu bertelur putih?",
 "Tahukah Anda bahwa Hawaii secara resmi menjadi bagian dari AS pada 14 Juni 1900",

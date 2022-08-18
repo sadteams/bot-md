@@ -4,7 +4,7 @@ let handler  = async (m, { conn, text }) => {
   for (let id of chats) {
        let bcbg = 'https://telegra.ph/file/b2ae8a0e437e4252d5124.png'
        await conn.delay(1500)
-       await conn.send2ButtonImg(id, bcbg, text.trim(), wm, 'Menu', '.menu', 'Owner', '.owner', ftroli)
+       await conn.send3TemplateButtonImg(id, bcbg, text.trim(), wm, 'Menu', '.menu', 'Owner', '.owner', 'Donasi', '.donasi', fake)
      }
   m.reply('*Broadcast selesai*')
 }

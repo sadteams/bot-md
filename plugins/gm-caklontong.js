@@ -20,7 +20,7 @@ Ketik ${usedPrefix}calo untuk bantuan
 Bonus: ${poin} XP
 `.trim()
     conn.caklontong[id] = [
-        await conn.sendButtonImg(m.chat, await (await fetch(fla + 'Cak Lontong')).buffer(), caption.trim(), wm, 'BANTUAN', usedPrefix + 'calo', m),
+        await conn.sendButtonLoc(m.chat, await conn.resize(fla + 'Cak Lontong', 280, 210), caption.trim(), wm, 'BANTUAN', usedPrefix + 'calo', m),
         json,
         poin,
         setTimeout(() => {
