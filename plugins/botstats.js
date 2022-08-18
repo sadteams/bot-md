@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-    let { anon, anticall, backup, jadibot, groupOnly, epe, tag, self } = global.db.data.settings[this.user.jid]
+    let { anon, anticall, backup, jadibot, groupOnly, epe, tag, self } = global.db.data.settings
 
     const chats = Object.keys(await conn.chats)
     const groups = Object.keys(await conn.groupFetchAllParticipating())
@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
     let uptime = clockString(_uptime)
 
 
-    m.reply(`
+    conn.reply(m.chat, `
 ┌─〔 Status 〕
 ├ Aktif selama ${uptime}
 ├ *${groups.length}* Grup
@@ -28,7 +28,17 @@ let handler = async (m, { conn }) => {
 ├ ${tag ? '✅' : '❌'} *Anti Tag Owner*
 ├ ${self ? '✅' : '❌'} *Mode Self*
 └────
-    `.trim())
+    `, m, { contextInfo: { externalAdReply :{
+    showAdAttribution: true,
+    mediaUrl: data.sc,
+    mediaType: 2,
+    description: data.deslink, 
+    title: run,
+    body: wm,
+    thumbnail: await(await fetch(img)).buffer(),
+    sourceUrl: data.sc
+     }}
+  })
 }
 handler.help = ['stats']
 handler.tags = ['about']

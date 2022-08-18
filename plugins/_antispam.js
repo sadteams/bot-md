@@ -1,26 +1,43 @@
 let handler = m => m
 
 handler.all = async function (m) {
-    if (!db.data.settings[this.user.jid].antispam) return // antispam aktif?
-    if (m.isBaileys || m.fromMe || !m.message) return
-    if (db.data.users[m.sender].banned || db.data.chats[m.chat].isBanned) return
     this.spam = this.spam ? this.spam : {}
-    if (m.sender in this.spam) {
-        this.spam[m.sender].count++
-        if (m.messageTimestamp.toNumber() - this.spam[m.sender].lastspam > 10) {
-            if (this.spam[m.sender].count > 10) {
-                db.data.users[m.sender].banned = true
-                await this.sendButton(m.chat, `kamu dibanned karena spam!`, wm, 'pemilik bot', '.owner', m)
-                await this.sendButton(global.owner[0], `*spam*\n\n@${m.sender.split`@`[0]}`, wm, 'unban', '.unban ' + m.sender.split`@`[0])
-            }
-            this.spam[m.sender].count = 0
-            this.spam[m.sender].lastspam = m.messageTimestamp.toNumber()
-        }
-    }
-    else this.spam[m.sender] = {
-        jid: m.sender,
-        count: 0,
+    if (!(m.sender in this.spam)) {
+        let spaming = {
+        jid: await m.sender, 
+        spam: 0,
         lastspam: 0
+            
+        }
+        this.spam[spaming.jid] = spaming
+    } else try {
+        this.spam[m.sender].spam += 1
+        if (new Date - this.spam[m.sender].lastspam > 4000) {
+            if (this.spam[m.sender].spam > 6) {
+                this.spam[m.sender].spam = 0
+                this.spam[m.sender].lastspam = new Date * 1
+                //global.db.data.users[m.sender].banned = true
+                let a = "https://telegra.ph/file/e43f05b8dd939c7fa74e0.png"
+  conn.sendStimg(m.chat, a, m, {packname: packname, author: author, 
+  contextInfo: { mentionedJid: [m.sender],
+    externalAdReply :{
+    showAdAttribution: true,
+    mediaUrl: data.sc,
+    mediaType: 2,
+    description: data.deslink , 
+    title: run,
+    body: wm,
+    thumbnail: await(await fetch(img)).buffer(),
+    sourceUrl: data.sc
+     }}
+  })
+            } else {
+                this.spam[m.sender].spam = 0
+                this.spam[m.sender].lastspam = new Date * 1
+            }
+        }
+    } catch (e) {
+        console.log(e)
     }
 }
 

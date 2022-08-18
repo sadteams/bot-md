@@ -1,18 +1,18 @@
 const fetch = require('node-fetch')
 let handler = async (m, { usedPrefix, command, conn, args }) => {
   if (!args[0]) throw `Gunakan format: ${usedPrefix}${command} https://twitter.com/gofoodindonesia/status/1229369819511709697`
- m.reply(wait)
+ m.reply(data.wait)
 await conn.reply(m.chat, `Downloading media from twitter`, 0, {
   contextInfo: { mentionedJid: [m.sender],
     externalAdReply :{
     showAdAttribution: true,
-    mediaUrl: linkig,
+    mediaUrl: data.sc,
     mediaType: 2,
-    description: deslink , 
-    title: titlink,
-    body: wm, //`${fileSizeH}`,
+    description: data.deslink , 
+    title: run,
+    body: wm,
     thumbnail: await(await fetch(img)).buffer(),
-    sourceUrl: linkgc
+    sourceUrl: data.sc
      }}
   })
   let res = await twitter(args[0])
@@ -32,8 +32,7 @@ await conn.reply(m.chat, `Downloading media from twitter`, 0, {
   conn.sendFile(m.chat, video, 'twitter' + /video/.test(ress.mime) ? '.mp4' : '.png', `
 *👤 Name:* ${res.name}
 *📮 Mime:* ${ress.mime}
-
-_©️${wm}_
+_©︄1�7${wm}_
 `.trim(), m)
 }
 handler.help = ['twitter'].map(v => v + ' <url>')

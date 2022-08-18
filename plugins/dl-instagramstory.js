@@ -1,20 +1,20 @@
 const { igstory, igstory2 } = require('../lib/scrape')
 const { instagramStory, instagramStoryv2 } = require('@bochilteam/scraper')
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) throw `uhm.. username nya mana?\n\ncontoh:\n\n${usedPrefix + command} rasel.ganz`
+    if (!args[0]) throw `uhm.. username nya mana?\n\ncontoh:\n\n${usedPrefix + command} the.sad.boy01`
     if (args[0].startsWith('http') || args[0].startsWith('@')) throw `username salah\n\ncontoh: *${usedPrefix}${command} the.sad.boy01*`
     try {
-    await m.reply(wait)
+    await m.reply(data.wait)
     await conn.reply(m.chat, `Downloading ig story ${args[0]}`, 0, {
     contextInfo: { mentionedJid: [m.sender],
     externalAdReply :{
-    mediaUrl: linkig,
+    mediaUrl: data.sc,
     mediaType: 2,
-    description: deslink, 
-    title: titlink,
-    body: wm, //`${fileSizeH}`,
+    description: data.deslink, 
+    title: run,
+    body: wm,
     thumbnail: await(await fetch(img)).buffer(),
-    sourceUrl: linkgc
+    sourceUrl: data.sc
      }}
     })
     //const res = await fetch(API('hardianto', '/api/download/igstory', { username: args[0] }, 'apikey'))

@@ -5,7 +5,7 @@ handler.before = async function (m) {
     if (m.isGroup && global.db.data.chats[m.chat].expired != 0) {
         if (new Date() * 1 >= global.db.data.chats[m.chat].expired) {
             this.reply(m.chat, `waktunya *${this.user.name}* untuk meninggalkan grup, mau bot ini stay di grup kamu? sewa ke nomor di bawah ini`, null).then(() => {
-                this.sendKontak(m.chat, kontak2, fkontak, { contexInfo: { forwardingScore: 99999, isForwarded: true } }).then(() => {
+                this.sendKontak(m.chat, data.kontak, fkontak, { contexInfo: { forwardingScore: 99999, isForwarded: true } }).then(() => {
                     this.groupLeave(m.chat).then(() => {
                         global.db.data.chats[m.chat].expired = 0
                     })

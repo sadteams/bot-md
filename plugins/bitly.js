@@ -1,27 +1,13 @@
 let fetch = require('node-fetch')
-let handler = async (m, { conn, args }) => {
-  if (!args[0]) throw 'Uhm...url nya mana?'
-let res = await fetch(API('xteam', '/shorturl/bitly', { url: args[0] }, 'apikey'))
-    let json = await res.json()
-    
-    m.reply(wait)
-await conn.reply(m.chat, json.result.link, 0, {
-  contextInfo: { mentionedJid: [m.sender],
-    externalAdReply :{
-    mediaUrl: linkig,
-    mediaType: 2,
-    description: deslink , 
-    title: titlink,
-    body: wm, 
-    thumbnail: await(await fetch(img)).buffer(),
-    sourceUrl: linkgc
-     }}
-  })
+let handler = async (m, { text }) => {
+  if (!text) throw 'url/link nya mana?'
+  let res = await fetch(global.API('xteam', '/shorturl/bitly', { url: text }, 'apikey'))
+  let json = await res.json()
+  if (json.status) m.reply(json.result.id)
+  else throw 'Link Invalid!\nPeriksa url anda'
 }
-handler.help = ['bitly'].map(v => v + ' <url>')
-handler.tags = ['internet']
+handler.help = ['bitly'].map(v => v + ' <link>')
+handler.tags = ['shortlink']
 handler.command = /^bitly$/i
-
-handler.premium = false
 
 module.exports = handler

@@ -14,9 +14,29 @@ handler.before = async function (m) {
             buffer = Buffer.concat([buffer, chunk])
         }
         if (/video/.test(type)) {
-            return this.sendFile(m.chat, buffer, 'media.mp4', msg[type].caption || '', m)
+            return this.sendFile(m.chat, buffer, 'media.mp4', msg[type].caption || '', m, { contextInfo: { externalAdReply :{
+        showAdAttribution: true,
+        mediaUrl: data.sc,
+        mediaType: 2,
+        description: data.deslink, 
+        title: run,
+        body: wm,
+        thumbnail: bg,
+        sourceUrl: data.sc
+        }}
+       })
         } else if (/image/.test(type)) {
-            return this.sendFile(m.chat, buffer, 'media.jpg', msg[type].caption || '', m)
+            return this.sendFile(m.chat, buffer, 'media.jpg', msg[type].caption || '', m, { contextInfo: { externalAdReply :{
+        showAdAttribution: true,
+        mediaUrl: data.sc,
+        mediaType: 2,
+        description: data.deslink, 
+        title: run,
+        body: wm,
+        thumbnail: bg,
+        sourceUrl: data.sc
+        }}
+       })
         }
     }
 }

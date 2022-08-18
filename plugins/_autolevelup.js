@@ -29,7 +29,7 @@ handler.before = async function (m) {
                         }),
                         )).buffer()
                         .then(async data => {
-                        	await this.sendTemplateButtonFakeImg(m.chat, data, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), wm, `Claim`, `.claim`)
+                        	await this.sendTemplateButtonFakeImg(m.chat, data, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), wm, `Claim`, `.claim`, m)
                               //  conn.sendButtonLoc(m.chat, data, `_*Level Up!*_\n_${before}_ -> _${user.level}_`.trim(), wm, `Claim`, `.claim`)
                                 //await this.sendButtonImg(m.chat, `_*Level Up!*_\n\n_*Selamat ${username} Anda naik Level*_\n_${before}_ -> _${user.level}_`.trim(), data, wm, 'CLAIM', ',claim', m)
                         })

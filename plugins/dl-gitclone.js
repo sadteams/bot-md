@@ -2,7 +2,7 @@ let regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
 let fetch = require('node-fetch')
 let handler = async (m, { args, usedPrefix, command }) => {
 
-    if (!args[0]) throw 'link githubnya mana? contoh: https://github.com/Kangsad01/bot-md '
+    if (!args[0]) throw 'link githubnya mana? contoh: https://github.com/sadteams/bot-md '
 
     if (!regex.test(args[0])) throw 'link salah!'
 
@@ -10,7 +10,7 @@ let handler = async (m, { args, usedPrefix, command }) => {
     repo = repo.replace(/.git$/, '')
     let url = `https://api.github.com/repos/${user}/${repo}/zipball`
     let filename = (await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-    // 'attachment; filename=Kangsad01/bot-mdv1.21.4.2022-g836cccd.zip'
+    // `attachment; filename=${user}/${repo}.zip`
     m.reply(`*Mohon tunggu, sedang mengirim repository..*`)
     conn.sendFile(m.chat, url, filename, null, m)
 

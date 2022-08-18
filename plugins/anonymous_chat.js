@@ -1,7 +1,7 @@
 //const { MessageType } = require("@adiwajshing/baileys")
 let fetch = require('node-fetch')
 async function handler(m, { command, usedPrefix }) {
-    if (!global.db.data.settings[this.user.jid].anon) throw `Fitur ini tidak aktif`
+    if (!db.data.settings[this.user.jid].anon) throw `Fitur ini tidak aktif`
     command = command.toLowerCase()
     this.anonymous = this.anonymous ? this.anonymous : {}
     switch (command) {

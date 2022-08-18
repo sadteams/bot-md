@@ -1,20 +1,21 @@
 let fetch = require('node-fetch')
+let axios = require('axios')
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-  if (!args[0]) throw `Use example ${usedPrefix + command} https://www.mediafire.com/file/*****.docs`
+  if (!args[0]) throw 'Uhm... url nya mana ?'
 let res = await fetch(API('xteam', '/dl/mediafire', { url: args[0] }, 'apikey'))
     let json = await res.json()
     
-    m.reply(wait)
+    m.reply(data.wait)
 await conn.reply(m.chat, `Downloading media from MediaFire`, 0, {
   contextInfo: { mentionedJid: [m.sender],
     externalAdReply :{
-    mediaUrl: linkig,
+    mediaUrl: data.sc,
     mediaType: 2,
-    description: deslink , 
-    title: titlink,
-    body: wm, //`${fileSizeH}`,
+    description: data.deslink , 
+    title: run,
+    body: wm,
     thumbnail: await(await fetch(img)).buffer(),
-    sourceUrl: linkgc
+    sourceUrl: data.sc
      }}
   }) 
 let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${args[0]}`)).data}

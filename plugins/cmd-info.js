@@ -2,7 +2,7 @@ module.exports = Object.assign(async function handler(m, { conn, text }) {
     let hash = text
     if (m.quoted && m.quoted.fileSha256) hash = m.quoted.fileSha256.toString('hex')
     if (!hash) throw 'Hash not found'
-    let sticker = global.db.data.sticker[hash]
+    let sticker = db.data.sticker[hash]
     if (sticker) return m.reply(`
 *fileSha256:* ${hash}
 *Text:* ${sticker.text}

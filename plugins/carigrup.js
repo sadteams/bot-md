@@ -9,10 +9,10 @@ let handler = async (m, { text, usedPrefix, command }) => {
      conn.sendButtonDoc(m.chat, teks, wm, 'Menu', '.menu', m, {
   contextInfo: { mentionedJid: [m.sender],
     externalAdReply :{
-    mediaUrl: linkig,
+    mediaUrl: data.sc,
     mediaType: 2,
-    description: deslink, 
-    title: titlink,
+    description: data.deslink, 
+    title: run,
     body: wm,
     thumbnail: await(await fetch(image)).buffer(),
     sourceUrl: 'https://chat.whatsapp.com/CnQV9lNcHuIENb8SQ9CaYP'

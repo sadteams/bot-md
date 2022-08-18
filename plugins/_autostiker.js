@@ -16,8 +16,8 @@ handler.before = async function (m) {
             let img = await q.download()
             if (!img) return
             wsf = new WSF.Sticker(img, {
-                pack: global.packname,
-                author: global.author,
+                pack: packname,
+                author: author,
                 crop: false,
             })
         } else if (/video/.test(mime)) {
@@ -25,12 +25,12 @@ handler.before = async function (m) {
             let img = await q.download()
             if (!img) return
             wsf = new WSF.Sticker(img, {
-                pack: global.packname,
-                author: global.author,
+                pack: packname,
+                author: author,
                 crop: false,
             })
         } else if (m.text.split` `[0]) {
-            if (isUrl(m.text.split` `[0])) stiker = await sticker(false, m.text.split` `[0], global.packname, global.author)
+            if (isUrl(m.text.split` `[0])) stiker = await sticker(false, m.text.split` `[0], packname, author)
             else return
         }
         if (wsf) {

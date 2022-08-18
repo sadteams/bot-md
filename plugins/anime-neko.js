@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let json = await res.json()
   conn.sendButtonImg(m.chat, json.url, 'Nihh nekonya', wm, `Next`, `${usedPrefix}${command}` , m)
   } catch {
-    throw eror 
+    throw data.eror 
   }
 }
 handler.help = ['neko']
