@@ -100,6 +100,10 @@ $ node .
 
 ## Arguments `node . [--options] [<session name>]` 
 
+### `--autocleartmp`
+
+Aktifkan untuk menghapus isi didalam folder tmp secara otomatis
+
 ### `--session <nama file>`
 
 menggunakan session dari nama file yang berbeda, default `session.data.json`
