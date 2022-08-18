@@ -1,4 +1,4 @@
-console.log('Starting...')
+console.log('Running...')
 let cluster = require('cluster')
 let path = require('path')
 let fs = require('fs')
@@ -8,7 +8,7 @@ const Readline = require('readline')
 const yargs = require('yargs/yargs')
 const rl = Readline.createInterface(process.stdin, process.stdout)
 
-CFonts.say('Bot-Md', {
+CFonts.say('Raxcel-Bot', {
   colors: ['#f2aa4c'],
   font: 'block',
   align: 'center',
