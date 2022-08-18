@@ -1,5 +1,5 @@
 let handler  = async (m, { conn }) => {
-  conn.reply(m.chat,`${pickRandom(global.iq)}`, m)
+  conn.reply(m.chat,`${pickRandom(iq)}`, m)
 }
 handler.help = ['iqtest']
 handler.tags = ['game']
@@ -21,7 +21,7 @@ function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
 }
 
-global.iq = [
+const iq = [
 'IQ Anda Sebesar : 1',
 'IQ Anda Sebesar : 14',
 'IQ Anda Sebesar : 23',
