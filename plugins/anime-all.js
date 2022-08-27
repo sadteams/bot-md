@@ -294,7 +294,7 @@ await conn.sendButtonImg(m.chat, cita, `Nihh ${command} nya @${m.sender.split('@
 if (command == 'waifu') {
 let res = await fetch('https://api.waifu.pics/sfw/waifu')
 let json = await res.json()
-await conn.sendButtonImg(m.chat, json.url, `Nihh ${command} nya @${m.sender.split('@')[0]}`, wm, `Next`, `${usedPrefix}${command}`, m, {mentions: [m.sender], jpegThumbnail: await(await fetch(cita)).buffer()})
+await conn.sendButtonImg(m.chat, json.url, `Nihh ${command} nya @${m.sender.split('@')[0]}`, wm, `Next`, `${usedPrefix}${command}`, m, {mentions: [m.sender], jpegThumbnail: await(await fetch(json.url)).buffer()})
 }
 if (command == 'yatogami') {
 let res = await (await fetch(`https://raw.githubusercontent.com/KazukoGans/database/main/anime/yatogami.json`)).json()
