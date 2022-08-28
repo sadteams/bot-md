@@ -41,7 +41,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'rpg', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'asupan', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'rpg', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'anime', 'nsfw', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'asupan', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'UTAMA',
@@ -52,6 +52,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'kerang': 'Kerang Ajaib',
     'quotes': 'Quotes',
     'group': 'Grup',
+    'anime': 'Anime',
+    'nsfw': 'Nsfw',
     'premium': 'Premium',
     'internet': 'Internet',
     'anonymous': 'Anonymous Chat',
@@ -89,6 +91,12 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   }
   if (teks == 'grup') tags = {
     'group': 'Grup'
+  }
+  if (teks == 'anime') tags = {
+    'anime': 'Anime'
+  }
+  if (teks == 'nsfw') tags = {
+    'nsfw': 'Nsfw'
   }
   if (teks == 'premium') tags = {
     'premium': 'Premium'
@@ -236,6 +244,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           { title: 'Kerang Ajaib', rowId: `${_p + command} kerangajaib` },
           { title: 'Quotes', rowId: `${_p + command} quotes` },
           { title: 'Grup', rowId: `${_p + command} grup` },
+          { title: 'Anime', rowId: `${_p + command} anime` },
+          { title: 'Nsfw', rowId: `${_p + command} nsfw` },
           { title: 'Premium', rowId: `${_p + command} premium` },
           { title: 'Internet', rowId: `${_p + command} internet` },
           { title: 'Anonymous', rowId: `${_p + command} anonymous` },
