@@ -402,9 +402,9 @@ function ucapan() {
 //By fahri adison = https://github.com/FahriAdison
 
  async function genProfile(conn, m) {
-    let font = await jimp.loadFont('./name.fnt'),
+    font = await jimp.loadFont('./name.fnt'),
     mask = await jimp.read('https://i.imgur.com/552kzaW.png'),
-    let res = JSON.parse(fs.readFileSync('./api/thumb.json')),
+    res = JSON.parse(fs.readFileSync('./api/thumb.json')),
     welcome = await jimp.read(res.getRandom()),
     avatar = await jimp.read(await conn.profilePictureUrl(m.sender, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')),
     status = (await conn.fetchStatus(m.sender).catch(console.log) || {}).status?.slice(0, 30) || 'Not Detected'
