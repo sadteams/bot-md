@@ -20,7 +20,7 @@ var seconds = Math.floor(seconds % 60);
 return `${pad(hours)}Jam ${pad(minutes)}Menit ${pad(seconds)}Detik`
 }
 var runtime = process.uptime()
-					var teks = `The.sad.boy01 ×͜×`// \n\n${kyun(runtime)}`
+					var teks = `The.sad.boy01 ×͜×`p
 					var run = `${kyun(runtime)}`
 					var itsme = `0@s.whatsapp.net`
 					var split = `teks`
@@ -33,9 +33,9 @@ var runtime = process.uptime()
                             itemCount : 999,
                             status: 1,
                             surface : 1,
-                            message: `${teks}\n${run}`, //Kasih namalu
+                            message: `${teks}\n${run}`,
                             orderTitle: `${teks}\n${run}`,
-                            thumbnail: fs.readFileSync('./src/img.png'), //Gambarnye
+                            thumbnail: fs.readFileSync('./src/logo.jpg'), //Gambarnye
                             sellerJid: '0@s.whatsapp.net' 
                           }
                         }
