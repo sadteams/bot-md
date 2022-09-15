@@ -649,17 +649,16 @@ module.exports = {
                     }
                 }
                 break
-
             case 'promote':
                 text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
             case 'demote':
                 if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
                 text = text.replace('@user', '@' + participants[0].split('@')[0])
-                if (chat.detect) this.reply(id, text, {
-                    contextInfo: {
-                        mentionedJid: this.parseMention(text)
-                    }
-                })
+                if (chat.detect) this.sendMessage(id, {
+                    text,
+                    mentions: await this.parseMention(text)
+
+                }, {quoted: fake)
                 break
         }
     },
