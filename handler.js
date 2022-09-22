@@ -34,11 +34,11 @@ module.exports = {
                 let user = global.db.data.users[m.sender]
                 if (typeof user !== 'object') global.db.data.users[m.sender] = {}
                 if (user) {
-                    if (!isNumber(user.joincount)) user.joincount = 1
+                    if (!isNumber(user.joincount)) user.joincount = 1000
                     if (!isNumber(user.healt)) user.healt = 0
                     if (!isNumber(user.level)) user.level = 1
                     if (!isNumber(user.exp)) user.exp = 0
-                    if (!isNumber(user.limit)) user.limit = 10
+                    if (!isNumber(user.limit)) user.limit = 1000
                     if (!isNumber(user.lastseen)) user.lastseen = 0
                     if (!isNumber(user.usebot)) user.usebot = 0
                     if (!isNumber(user.lastclaim)) user.lastclaim = 0
@@ -47,7 +47,7 @@ module.exports = {
                     if (!isNumber(user.lastnebang)) user.lastnebang = 0
                     if (!isNumber(user.lastnyampah)) user.lastnyampah = 0
                     if (!isNumber(user.lastowner)) user.lastowner = 0
-                    if (!isNumber(user.money)) user.money = 0
+                    if (!isNumber(user.money)) user.money = 10000
                     if (!isNumber(user.diamond)) user.diamond = 0
                     if (!isNumber(user.iron)) user.iron = 0
                     if (!isNumber(user.batu)) user.batu = 0
@@ -141,11 +141,11 @@ module.exports = {
                     if (!('kuli' in user)) user.kuli = false
                     if (!('polisi' in user)) user.polisi = false
                 } else global.db.data.users[m.sender] = {
-                    joincount: 1,
+                    joincount: 1000,
                     healt: 100,
                     level: 1,
                     exp: 0,
-                    limit: 10,
+                    limit: 10000,
                     lastseen: 0,
                     usebot: 0,
                     lastclaim: 0,
@@ -154,7 +154,7 @@ module.exports = {
                     lastnebang: 0,
                     lastnyampah: 0,
                     lastowner: 0,
-                    money: 0,
+                    money: 10000,
                     diamond: 0,
                     iron: 0,
                     common: 0,
@@ -249,7 +249,7 @@ module.exports = {
                 if (typeof chat !== 'object') global.db.data.chats[m.chat] = {}
                 if (chat) {
                     if (!('name' in chat)) chat.name = this.getName(m.chat)
-                    if (!('closeGroup' in chat)) chat.closeGroup = false
+                    if (!('closeGroup' in chat)) chat.closeGroup = true
                     if (!isNumber(chat.add)) chat.add = 0
                     if (!('isBanned' in chat)) chat.isBanned = false
                     if (!('welcome' in chat)) chat.welcome = true
@@ -260,12 +260,12 @@ module.exports = {
                     if (!('sDemote' in chat)) chat.sDemote = ''
                     if (!('desc' in chat)) chat.desc = true
                     if (!('descUpdate' in chat)) chat.descUpdate = true
-                    if (!('stiker' in chat)) chat.stiker = false
+                    if (!('stiker' in chat)) chat.stiker = true
                     if (!('delete' in chat)) chat.delete = false
-                    if (!('antiLink' in chat)) chat.antiLink = true
+                    if (!('antiLink' in chat)) chat.antiLink = false
                     if (!isNumber(chat.expired)) chat.expired = 0
                     if (!('antiBadword' in chat)) chat.antiBadword = true
-                    if (!('antiDownload' in chat)) chat.antiDownload = true
+                    if (!('antiDownload' in chat)) chat.antiDownload = false
                     if (!('antispam' in chat)) chat.antispam = true
                     if (!('antitroli' in chat)) chat.antitroli = false
                     if (!('antivirtex' in chat)) chat.antivirtex = false
@@ -288,12 +288,12 @@ module.exports = {
                     sDemote: '',
                     desc: true,
                     descUpdate: true,
-                    stiker: false,
+                    stiker: true,
                     delete: false,
-                    antiLink: true,
+                    antiLink: false,
                     expired: 0,
                     antiBadword: true,
-                    antiDownload: true,
+                    antiDownload: false,
                     antispam: true,
                     antitroli: false,
                     antivirtex: false,
