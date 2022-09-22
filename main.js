@@ -45,5 +45,204 @@ global.db = new Low(
       new mongoDB(opts['db']) :
       new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
 )
+global.DATABASE = global.db // Backwards Compatibility
+global.loadDatabase = async function loadDatabase() {
+  if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
+  if (global.db.data !== null) return
+  global.db.READ = true
+  await global.db.read()
+  global.db.READ = false
+  global.db.data = {
+    users: {},
+    chats: {},
+    stats: {},
+    msgs: {},
+    sticker: {},
+    settings: {},
+    ...(global.db.data || {})
+  }
+  global.db.chain = _.chain(global.db.data)
+}
+loadDatabase()
 
-const _0x335b0c=_0x2964;(function(_0x538e82,_0x533a84){const _0x4194e5=_0x2964,_0x4b8346=_0x538e82();while(!![]){try{const _0x3e776d=-parseInt(_0x4194e5(0x207))/0x1*(parseInt(_0x4194e5(0x1ec))/0x2)+-parseInt(_0x4194e5(0x1bc))/0x3+parseInt(_0x4194e5(0x208))/0x4*(parseInt(_0x4194e5(0x1cb))/0x5)+-parseInt(_0x4194e5(0x209))/0x6*(-parseInt(_0x4194e5(0x1d1))/0x7)+-parseInt(_0x4194e5(0x1fc))/0x8+-parseInt(_0x4194e5(0x1e4))/0x9*(-parseInt(_0x4194e5(0x1d7))/0xa)+-parseInt(_0x4194e5(0x1b6))/0xb;if(_0x3e776d===_0x533a84)break;else _0x4b8346['push'](_0x4b8346['shift']());}catch(_0x3f595e){_0x4b8346['push'](_0x4b8346['shift']());}}}(_0x5ae7,0x296cf));const _0x1130a3=(function(){let _0x378935=!![];return function(_0x40ab95,_0x2c083c){const _0x47709a=_0x378935?function(){const _0x23a4fd=_0x2964;if(_0x2c083c){const _0xd023cc=_0x2c083c[_0x23a4fd(0x177)](_0x40ab95,arguments);return _0x2c083c=null,_0xd023cc;}}:function(){};return _0x378935=![],_0x47709a;};}()),_0x5da497=_0x1130a3(this,function(){const _0x213ba5=_0x2964;return _0x5da497['toString']()[_0x213ba5(0x17b)]('(((.+)+)+)+$')['toString']()[_0x213ba5(0x19c)](_0x5da497)[_0x213ba5(0x17b)](_0x213ba5(0x17a));});_0x5da497();const _0x997381=(function(){let _0x16c0f8=!![];return function(_0x3c00b6,_0x5a72b7){const _0x2196bb=_0x16c0f8?function(){const _0x2b6fe7=_0x2964;if(_0x5a72b7){const _0x43671f=_0x5a72b7[_0x2b6fe7(0x177)](_0x3c00b6,arguments);return _0x5a72b7=null,_0x43671f;}}:function(){};return _0x16c0f8=![],_0x2196bb;};}());(function(){_0x997381(this,function(){const _0x56571d=_0x2964,_0x4a56db=new RegExp(_0x56571d(0x1ab)),_0x4b3a09=new RegExp(_0x56571d(0x1b0),'i'),_0x25c187=_0x47bc3d(_0x56571d(0x185));!_0x4a56db['test'](_0x25c187+_0x56571d(0x20d))||!_0x4b3a09[_0x56571d(0x1ae)](_0x25c187+'input')?_0x25c187('0'):_0x47bc3d();})();}());const _0x180bfd=(function(){let _0x44c665=!![];return function(_0x2772dd,_0xc4b230){const _0x15d9fd=_0x44c665?function(){const _0x47a921=_0x2964;if(_0xc4b230){const _0x3f2b09=_0xc4b230[_0x47a921(0x177)](_0x2772dd,arguments);return _0xc4b230=null,_0x3f2b09;}}:function(){};return _0x44c665=![],_0x15d9fd;};}()),_0x4f09af=_0x180bfd(this,function(){const _0x1996c0=_0x2964,_0x3ac73b=function(){const _0x45fcce=_0x2964;let _0x26e9b5;try{_0x26e9b5=Function(_0x45fcce(0x200)+_0x45fcce(0x196)+');')();}catch(_0x55352b){_0x26e9b5=window;}return _0x26e9b5;},_0x9a954=_0x3ac73b(),_0xdf37a2=_0x9a954[_0x1996c0(0x1fa)]=_0x9a954[_0x1996c0(0x1fa)]||{},_0x140809=[_0x1996c0(0x19d),'warn',_0x1996c0(0x1d5),_0x1996c0(0x1bd),_0x1996c0(0x1ce),_0x1996c0(0x195),_0x1996c0(0x1a5)];for(let _0x135c38=0x0;_0x135c38<_0x140809[_0x1996c0(0x1f8)];_0x135c38++){const _0xe1e9ab=_0x180bfd[_0x1996c0(0x19c)][_0x1996c0(0x1df)][_0x1996c0(0x1cc)](_0x180bfd),_0x4d815a=_0x140809[_0x135c38],_0x7e32e9=_0xdf37a2[_0x4d815a]||_0xe1e9ab;_0xe1e9ab[_0x1996c0(0x197)]=_0x180bfd[_0x1996c0(0x1cc)](_0x180bfd),_0xe1e9ab['toString']=_0x7e32e9[_0x1996c0(0x1cf)][_0x1996c0(0x1cc)](_0x7e32e9),_0xdf37a2[_0x4d815a]=_0xe1e9ab;}});_0x4f09af(),global[_0x335b0c(0x1ba)]=global['db'],global[_0x335b0c(0x1f1)]=async function loadDatabase(){const _0x16d81c=_0x335b0c;if(global['db'][_0x16d81c(0x1ea)])return new Promise(_0xabd343=>setInterval(function(){const _0x4f12e6=_0x16d81c;!global['db']['READ']?(clearInterval(this),_0xabd343(global['db']['data']==null?global[_0x4f12e6(0x1f1)]():global['db']['data'])):null;},0x1*0x3e8));if(global['db'][_0x16d81c(0x214)]!==null)return;global['db'][_0x16d81c(0x1ea)]=!![],await global['db']['read'](),global['db']['READ']=![],global['db'][_0x16d81c(0x214)]={'users':{},'chats':{},'stats':{},'msgs':{},'sticker':{},'settings':{},...global['db']['data']||{}},global['db']['chain']=_[_0x16d81c(0x20d)](global['db'][_0x16d81c(0x214)]);},loadDatabase();const authFile=(opts['_'][0x0]||_0x335b0c(0x188))+_0x335b0c(0x1c3);global['isInit']=!fs[_0x335b0c(0x1f7)](authFile);const {state,saveState}=useSingleFileAuthState(authFile),logger=P({'transport':{'target':_0x335b0c(0x19e),'options':{'colorize':!![],'levelFirst':!![],'ignore':_0x335b0c(0x1eb),'translateTime':!![]}}})['child']({'class':_0x335b0c(0x1a6)}),connectionOptions={'printQRInTerminal':!![],'auth':state,'logger':P({'level':_0x335b0c(0x1e9)}),'version':[0x2,0x89c,0xd],'browser':[_0x335b0c(0x1bf),'Mozilla',_0x335b0c(0x199)]};function _0x2964(_0x23628b,_0x274456){const _0x537d3d=_0x5ae7();return _0x2964=function(_0x4f09af,_0x180bfd){_0x4f09af=_0x4f09af-0x177;let _0x5e9261=_0x537d3d[_0x4f09af];return _0x5e9261;},_0x2964(_0x23628b,_0x274456);}global[_0x335b0c(0x179)]=[_0x335b0c(0x1ad)],global['conn']=simple[_0x335b0c(0x1ed)](connectionOptions);if(!opts[_0x335b0c(0x1ae)]){if(global['db'])setInterval(async()=>{const _0x31f372=_0x335b0c;if(global['db']['data'])await global['db'][_0x31f372(0x20f)]();if(opts[_0x31f372(0x18a)]&&(global[_0x31f372(0x1fd)]||{})['find'])tmp=[os[_0x31f372(0x18f)](),_0x31f372(0x17c)],tmp['forEach'](_0x369b78=>cp[_0x31f372(0x17f)](_0x31f372(0x1a3),[_0x369b78,_0x31f372(0x1b9),'3',_0x31f372(0x1e5),'f',_0x31f372(0x1c8)]));},0x1e*0x3e8);}if(opts[_0x335b0c(0x1a1)]||opts[_0x335b0c(0x1ac)])conn['ev']['on']('qr',_0x2edf76=>generate(_0x2edf76,{'small':![]}));if(opts['server'])require('./server')(global[_0x335b0c(0x1bb)],PORT);async function connectionUpdate(_0x74a638){const _0x324f84=_0x335b0c,{connection:_0xdda1a8,lastDisconnect:_0x590f35}=_0x74a638;if(_0xdda1a8==_0x324f84(0x18b))console[_0x324f84(0x19d)](chalk[_0x324f84(0x1d4)](_0x324f84(0x20b)));_0xdda1a8=='open'&&(console[_0x324f84(0x19d)](chalk[_0x324f84(0x20a)](_0x324f84(0x1ee))),await conn['updateBlockStatus']('62895336282144@s.whatsapp.net',_0x324f84(0x18d)),await conn[_0x324f84(0x1a8)](_0x324f84(0x1be),_0x324f84(0x1e1),_0x324f84(0x1b8),global['wm'],null));if(_0xdda1a8==_0x324f84(0x1e7))console[_0x324f84(0x19d)](chalk[_0x324f84(0x191)](_0x324f84(0x1aa)));global['timestamp'][_0x324f84(0x1fe)]=new Date();_0x590f35&&_0x590f35[_0x324f84(0x1bd)]&&_0x590f35[_0x324f84(0x1bd)]['output']&&_0x590f35[_0x324f84(0x1bd)][_0x324f84(0x206)][_0x324f84(0x1de)]!==DisconnectReason[_0x324f84(0x1e8)]&&conn['ws'][_0x324f84(0x1f3)]!==WebSocket[_0x324f84(0x1db)]&&console[_0x324f84(0x19d)](global[_0x324f84(0x19b)](!![]));if(global['db'][_0x324f84(0x214)]==null)await loadDatabase();}process['on'](_0x335b0c(0x1c9),console[_0x335b0c(0x1bd)]);const imports=_0x3439a0=>{const _0x1f6123=_0x335b0c;_0x3439a0=require['resolve'](_0x3439a0);let _0x5b7ff7,_0x205696=0x0;do{if(_0x3439a0 in require[_0x1f6123(0x1c7)])delete require['cache'][_0x3439a0];_0x5b7ff7=require(_0x3439a0),_0x205696++;}while((!_0x5b7ff7||(Array[_0x1f6123(0x204)](_0x5b7ff7)||_0x5b7ff7 instanceof String)?!(_0x5b7ff7||[])[_0x1f6123(0x1f8)]:typeof _0x5b7ff7==_0x1f6123(0x198)&&!Buffer[_0x1f6123(0x1b7)](_0x5b7ff7)?!Object[_0x1f6123(0x1a9)](_0x5b7ff7||{})[_0x1f6123(0x1f8)]:!![])&&_0x205696<=0xa);return _0x5b7ff7;};let isInit=!![];global[_0x335b0c(0x19b)]=function(_0x1febed){const _0x2e155f=_0x335b0c;let _0x1df56b=imports(_0x2e155f(0x210));if(_0x1febed){try{global[_0x2e155f(0x1bb)]['ws'][_0x2e155f(0x1e7)]();}catch{}global['conn']={...global[_0x2e155f(0x1bb)],...simple[_0x2e155f(0x1ed)](connectionOptions)};}return!isInit&&(conn['ev']['off']('messages.upsert',conn[_0x2e155f(0x17d)]),conn['ev'][_0x2e155f(0x1c0)](_0x2e155f(0x1a0),conn[_0x2e155f(0x203)]),conn['ev']['off']('groups.update',conn[_0x2e155f(0x1dd)]),conn['ev'][_0x2e155f(0x1c0)](_0x2e155f(0x1ca),conn[_0x2e155f(0x1c6)]),conn['ev'][_0x2e155f(0x1c0)]('connection.update',conn['connectionUpdate']),conn['ev'][_0x2e155f(0x1c0)]('creds.update',conn[_0x2e155f(0x1f0)])),conn[_0x2e155f(0x181)]=_0x2e155f(0x19a),conn[_0x2e155f(0x178)]=_0x2e155f(0x1b2),conn[_0x2e155f(0x1fb)]=_0x2e155f(0x1d9),conn[_0x2e155f(0x189)]=_0x2e155f(0x193),conn[_0x2e155f(0x186)]=_0x2e155f(0x20c),conn[_0x2e155f(0x192)]=_0x2e155f(0x1da),conn[_0x2e155f(0x1f4)]=_0x2e155f(0x1b3),conn[_0x2e155f(0x1f2)]=_0x2e155f(0x182),conn[_0x2e155f(0x18e)]='Group\x20telah\x20di\x20tutup!\x0asekarang\x20hanya\x20admin\x20yang\x20dapat\x20mengirim\x20pesan.',conn[_0x2e155f(0x201)]=_0x2e155f(0x1f6),conn['sRestrictOn']=_0x2e155f(0x1d0),conn['sRestrictOff']=_0x2e155f(0x183),conn['handler']=_0x1df56b['handler']['bind'](conn),conn[_0x2e155f(0x203)]=_0x1df56b['participantsUpdate']['bind'](conn),conn[_0x2e155f(0x1dd)]=_0x1df56b['groupsUpdate']['bind'](conn),conn[_0x2e155f(0x1c6)]=_0x1df56b['delete'][_0x2e155f(0x1cc)](conn),conn[_0x2e155f(0x202)]=connectionUpdate[_0x2e155f(0x1cc)](conn),conn['credsUpdate']=saveState[_0x2e155f(0x1cc)](conn),conn['ev']['on']('messages.upsert',conn[_0x2e155f(0x17d)]),conn['ev']['on'](_0x2e155f(0x1a0),conn[_0x2e155f(0x203)]),conn['ev']['on'](_0x2e155f(0x1ef),conn[_0x2e155f(0x1dd)]),conn['ev']['on'](_0x2e155f(0x1ca),conn['onDelete']),conn['ev']['on'](_0x2e155f(0x211),conn['connectionUpdate']),conn['ev']['on'](_0x2e155f(0x1e0),conn[_0x2e155f(0x1f0)]),isInit=![],!![];};let pluginFolder=path[_0x335b0c(0x1e6)](__dirname,_0x335b0c(0x1d6)),pluginFilter=_0x790547=>/\.js$/[_0x335b0c(0x1ae)](_0x790547);global['plugins']={};for(let filename of fs['readdirSync'](pluginFolder)['filter'](pluginFilter)){try{global[_0x335b0c(0x1d6)][filename]=require(path[_0x335b0c(0x1e6)](pluginFolder,filename));}catch(_0x5e719e){conn[_0x335b0c(0x1d3)][_0x335b0c(0x1bd)](_0x5e719e),delete global[_0x335b0c(0x1d6)][filename];}}console[_0x335b0c(0x19d)](Object[_0x335b0c(0x1a9)](global[_0x335b0c(0x1d6)])),global['reload']=(_0x417808,_0x1a8b85)=>{const _0x21710d=_0x335b0c;if(pluginFilter(_0x1a8b85)){let _0xa54f8=path[_0x21710d(0x1e6)](pluginFolder,_0x1a8b85);if(_0xa54f8 in require[_0x21710d(0x1c7)]){delete require[_0x21710d(0x1c7)][_0xa54f8];if(fs[_0x21710d(0x1f7)](_0xa54f8))conn[_0x21710d(0x1d3)][_0x21710d(0x1d5)](_0x21710d(0x205)+_0x1a8b85+'\x27');else return conn[_0x21710d(0x1d3)]['warn'](_0x21710d(0x194)+_0x1a8b85+'\x27'),delete global['plugins'][_0x1a8b85];}else conn[_0x21710d(0x1d3)]['info'](_0x21710d(0x1a4)+_0x1a8b85+'\x27');let _0x44e38c=syntaxerror(fs[_0x21710d(0x187)](_0xa54f8),_0x1a8b85);if(_0x44e38c)conn[_0x21710d(0x1d3)][_0x21710d(0x1bd)](_0x21710d(0x18c)+_0x1a8b85+'\x27\x0a'+_0x44e38c);else try{global[_0x21710d(0x1d6)][_0x1a8b85]=require(_0xa54f8);}catch(_0x32b82d){conn[_0x21710d(0x1d3)]['error'](_0x32b82d);}finally{global[_0x21710d(0x1d6)]=Object[_0x21710d(0x1dc)](Object['entries'](global[_0x21710d(0x1d6)])[_0x21710d(0x1c2)](([_0x2fa6f3],[_0x36f525])=>_0x2fa6f3[_0x21710d(0x20e)](_0x36f525)));}}},Object[_0x335b0c(0x1ff)](global['reload']),fs['watch'](path['join'](__dirname,'plugins'),global[_0x335b0c(0x180)]),global[_0x335b0c(0x19b)]();async function _quickTest(){const _0xbcbd9f=_0x335b0c;let _0xe5ab4a=await Promise[_0xbcbd9f(0x213)]([cp['spawn'](_0xbcbd9f(0x1af)),cp[_0xbcbd9f(0x17f)]('ffprobe'),cp[_0xbcbd9f(0x17f)](_0xbcbd9f(0x1af),[_0xbcbd9f(0x1c1),_0xbcbd9f(0x1d2),_0xbcbd9f(0x1bd),_0xbcbd9f(0x1b4),_0xbcbd9f(0x17e),_0xbcbd9f(0x1b1),'1','-f','webp','-']),cp[_0xbcbd9f(0x17f)]('convert'),cp['spawn']('magick'),cp['spawn']('gm'),cp[_0xbcbd9f(0x17f)](_0xbcbd9f(0x1a3),['--version'])][_0xbcbd9f(0x190)](_0x5e31af=>{const _0x31f7dc=_0xbcbd9f;return Promise[_0x31f7dc(0x1a7)]([new Promise(_0x39e92b=>{_0x5e31af['on']('close',_0x118ce0=>{_0x39e92b(_0x118ce0!==0x7f);});}),new Promise(_0x438ed3=>{const _0x1720c9=_0x31f7dc;_0x5e31af['on'](_0x1720c9(0x1bd),_0x251a91=>_0x438ed3(![]));})]);})),[_0x39a75e,_0x171ec2,_0x4609e3,_0x37eb6a,_0x568db8,_0x6b36f4,_0x423cfe]=_0xe5ab4a;console[_0xbcbd9f(0x19d)](_0xe5ab4a);let _0x417957=global[_0xbcbd9f(0x1fd)]={'ffmpeg':_0x39a75e,'ffprobe':_0x171ec2,'ffmpegWebp':_0x4609e3,'convert':_0x37eb6a,'magick':_0x568db8,'gm':_0x6b36f4,'find':_0x423cfe};require('./lib/sticker')[_0xbcbd9f(0x1fd)]=_0x417957,Object[_0xbcbd9f(0x1ff)](global[_0xbcbd9f(0x1fd)]);if(!_0x417957[_0xbcbd9f(0x1af)])conn[_0xbcbd9f(0x1d3)][_0xbcbd9f(0x1c5)](_0xbcbd9f(0x1f9));if(_0x417957[_0xbcbd9f(0x1af)]&&!_0x417957[_0xbcbd9f(0x1d8)])conn[_0xbcbd9f(0x1d3)]['warn']('Stickers\x20may\x20not\x20animated\x20without\x20libwebp\x20on\x20ffmpeg\x20(--enable-ibwebp\x20while\x20compiling\x20ffmpeg)');if(!_0x417957[_0xbcbd9f(0x1cd)]&&!_0x417957[_0xbcbd9f(0x1a2)]&&!_0x417957['gm'])conn[_0xbcbd9f(0x1d3)][_0xbcbd9f(0x1c5)](_0xbcbd9f(0x1e2));}_quickTest()[_0x335b0c(0x212)](()=>conn[_0x335b0c(0x1d3)]['info'](_0x335b0c(0x19f)))[_0x335b0c(0x1c4)](console[_0x335b0c(0x1bd)]);function _0x5ae7(){const _0x7460a1=['groupsUpdate','statusCode','prototype','creds.update','https://telegra.ph/file/33fffb19cefb5b112407c.jpg','Stickers\x20may\x20not\x20work\x20without\x20imagemagick\x20if\x20libwebp\x20on\x20ffmpeg\x20doesnt\x20isntalled\x20(pkg\x20install\x20imagemagick)','gger','9Mayato','-type','join','close','loggedOut','silent','READ','hostname','10336IpYuml','makeWASocket','✔️\x20Connected','groups.update','credsUpdate','loadDatabase','sRevoke','readyState','sIcon','action','Group\x20telah\x20di\x20buka!\x0asekarang\x20semua\x20peserta\x20dapat\x20mengirim\x20pesan.','existsSync','length','Please\x20install\x20ffmpeg\x20for\x20sending\x20videos\x20(pkg\x20install\x20ffmpeg)','console','spromote','1303464YgJSup','support','connect','freeze','return\x20(function()\x20','sAnnounceOff','connectionUpdate','participantsUpdate','isArray','re\x20require\x20plugin\x20\x27','output','29SxSBFj','4LxKaVQ','116862fExaKV','green','🕛\x20Mengaktifkan\x20Bot,\x20Harap\x20tunggu\x20sebentar...','Deskripsi\x20telah\x20diubah\x20ke\x20\x0a@desc','chain','localeCompare','write','./handler','connection.update','then','all','data','apply','bye','mods','(((.+)+)+)+$','search','tmp','handler','color','spawn','reload','welcome','Link\x20group\x20telah\x20diubah\x20ke\x20\x0a@revoke','Edit\x20Info\x20Grup\x20di\x20ubah\x20ke\x20semua\x20peserta!','stateObject','init','sDesc','readFileSync','session','sdemote','autocleartmp','connecting','syntax\x20error\x20while\x20loading\x20\x27','unblock','sAnnounceOn','tmpdir','map','red','sSubject','@user\x20sekarang\x20bukan\x20admin!','deleted\x20plugin\x20\x27','table','{}.constructor(\x22return\x20this\x22)(\x20)','__proto__','object','5.0','Hai,\x20@user!\x0aSelamat\x20datang\x20di\x20grup\x20@subject\x0a\x0a@desc','reloadHandler','constructor','log','pino-pretty','Quick\x20Test\x20Done','group-participants.update','big-qr','magick','find','requiring\x20new\x20plugin\x20\x27','trace','baileys','race','send3TemplateButtonLoc','keys','⏹️\x20Koneksi\x20berhenti\x20dan\x20mencoba\x20menghubungkan\x20kembali...','function\x20*\x5c(\x20*\x5c)','server','62895336282144','test','ffmpeg','\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','-frames:v','Selamat\x20tinggal\x20@user!','Icon\x20grup\x20telah\x20diubah!','-filter_complex','debu','1313664WyJpIh','isBuffer','Bot\x20Ini\x20Tersambung\x20Ke\x20Sc\x20Bot-Md','-amin','DATABASE','conn','238794sjGiOd','error','62895336282144@s.whatsapp.net','By\x20The.sad.boy01','off','-hide_banner','sort','.data.json','catch','warn','onDelete','cache','-delete','uncaughtException','message.delete','320335QfKIMb','bind','convert','exception','toString','Edit\x20Info\x20Grup\x20di\x20ubah\x20ke\x20hanya\x20admin!','105CDchFU','-loglevel','logger','redBright','info','plugins','3252840GAzbop','ffmpegWebp','@user\x20sekarang\x20admin!','Judul\x20grup\x20telah\x20diubah\x20ke\x20\x0a@subject','CONNECTING','fromEntries'];_0x5ae7=function(){return _0x7460a1;};return _0x5ae7();}function _0x47bc3d(_0x528580){function _0x3e69ad(_0x4aa046){const _0x146da2=_0x2964;if(typeof _0x4aa046==='string')return function(_0x15bfd4){}[_0x146da2(0x19c)]('while\x20(true)\x20{}')[_0x146da2(0x177)]('counter');else(''+_0x4aa046/_0x4aa046)[_0x146da2(0x1f8)]!==0x1||_0x4aa046%0x14===0x0?function(){return!![];}[_0x146da2(0x19c)](_0x146da2(0x1b5)+_0x146da2(0x1e3))['call'](_0x146da2(0x1f5)):function(){return![];}['constructor']('debu'+_0x146da2(0x1e3))[_0x146da2(0x177)](_0x146da2(0x184));_0x3e69ad(++_0x4aa046);}try{if(_0x528580)return _0x3e69ad;else _0x3e69ad(0x0);}catch(_0x40ed25){}}
+// if (opts['cluster']) {
+//   require('./lib/cluster').Cluster()
+// }
+global.authFile = `${opts._[0] || 'session'}.data.json`
+global.isInit = !fs.existsSync(authFile)
+const { state, saveState } = useSingleFileAuthState(global.authFile)
+
+const connectionOptions = {
+  printQRInTerminal: true,
+  auth: state,
+  logger: P({ level: 'silent'}),
+  version: [2, 2204, 13]
+}
+
+global.conn = simple.makeWASocket(connectionOptions)
+
+if (!opts['test']) {
+  if (global.db) setInterval(async () => {
+    if (global.db.data) await global.db.write()
+    if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp'], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
+  }, 30 * 1000)
+}
+if (opts['big-qr'] || opts['server']) conn.ev.on('qr', qr => generate(qr, { small: false }))
+if (opts['server']) require('./server')(global.conn, PORT)
+
+async function connectionUpdate(update) {
+  console.log(require('chalk').redBright('Mengaktifkan Bot, Harap tunggu sebentar...'))
+  const { connection, lastDisconnect } = update
+  global.timestamp.connect = new Date
+  if (lastDisconnect && lastDisconnect.error && lastDisconnect.error.output && lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut && conn.ws.readyState !== WebSocket.CONNECTING) {
+    console.log(global.reloadHandler(true))
+  }
+  if (global.db.data == null) await loadDatabase()
+//console.log(JSON.stringify(update, null, 4))
+}
+
+
+process.on('uncaughtException', console.error)
+// let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
+
+const imports = (path) => {
+  path = require.resolve(path)
+  let modules, retry = 0
+  do {
+    if (path in require.cache) delete require.cache[path]
+    modules = require(path)
+    retry++
+  } while ((!modules || (Array.isArray(modules) || modules instanceof String) ? !(modules || []).length : typeof modules == 'object' && !Buffer.isBuffer(modules) ? !(Object.keys(modules || {})).length : true) && retry <= 10)
+  return modules
+}
+let isInit = true
+global.reloadHandler = function (restatConn) {
+  let handler = imports('./handler')
+  if (restatConn) {
+    try { global.conn.ws.close() } catch { }
+    global.conn = {
+      ...global.conn, ...simple.makeWASocket(connectionOptions)
+    }
+  }
+  if (!isInit) {
+    conn.ev.off('messages.upsert', conn.handler)
+    conn.ev.off('group-participants.update', conn.participantsUpdate)
+    conn.ev.off('groups.update', conn.groupsUpdate)
+    conn.ev.off('message.delete', conn.onDelete)
+    conn.ev.off('connection.update', conn.connectionUpdate)
+    conn.ev.off('creds.update', conn.credsUpdate)
+  }
+
+  conn.welcome = 'Hai, @user!\nSelamat datang di grup @subject\n\n@desc'
+  conn.bye = 'Selamat tinggal @user!'
+  conn.spromote = '@user sekarang admin!'
+  conn.sdemote = '@user sekarang bukan admin!'
+  conn.sDesc = 'Deskripsi telah diubah ke \n@desc'
+  conn.sSubject = 'Judul grup telah diubah ke \n@subject'
+  conn.sIcon = 'Icon grup telah diubah!'
+  conn.sRevoke = 'Link group telah diubah ke \n@revoke'
+  conn.sAnnounceOn = 'Group telah di tutup!\nsekarang hanya admin yang dapat mengirim pesan.'
+  conn.sAnnounceOff = 'Group telah di buka!\nsekarang semua peserta dapat mengirim pesan.'
+  conn.sRestrictOn = 'Edit Info Grup di ubah ke hanya admin!'
+  conn.sRestrictOff = 'Edit Info Grup di ubah ke semua peserta!'
+
+  conn.handler = handler.handler.bind(conn)
+  conn.participantsUpdate = handler.participantsUpdate.bind(conn)
+  conn.groupsUpdate = handler.groupsUpdate.bind(conn)
+  conn.onDelete = handler.delete.bind(conn)
+  conn.connectionUpdate = connectionUpdate.bind(conn)
+  conn.credsUpdate = saveState.bind(conn)
+
+  conn.ev.on('messages.upsert', conn.handler)
+  conn.ev.on('group-participants.update', conn.participantsUpdate)
+  conn.ev.on('groups.update', conn.groupsUpdate)
+  conn.ev.on('message.delete', conn.onDelete)
+  conn.ev.on('connection.update', conn.connectionUpdate)
+  conn.ev.on('creds.update', conn.credsUpdate)
+  isInit = false
+  return true
+}
+
+let pluginFolder = path.join(__dirname, 'plugins')
+let pluginFilter = filename => /\.js$/.test(filename)
+global.plugins = {}
+for (let filename of fs.readdirSync(pluginFolder).filter(pluginFilter)) {
+  try {
+    global.plugins[filename] = require(path.join(pluginFolder, filename))
+  } catch (e) {
+    conn.logger.error(e)
+    delete global.plugins[filename]
+  }
+}
+console.log(Object.keys(global.plugins))
+global.reload = (_ev, filename) => {
+  if (pluginFilter(filename)) {
+    let dir = path.join(pluginFolder, filename)
+    if (dir in require.cache) {
+      delete require.cache[dir]
+      if (fs.existsSync(dir)) conn.logger.info(`re require plugin '${filename}'`)
+      else {
+        conn.logger.warn(`deleted plugin '${filename}'`)
+        return delete global.plugins[filename]
+      }
+    } else conn.logger.info(`requiring new plugin '${filename}'`)
+    let err = syntaxerror(fs.readFileSync(dir), filename)
+    if (err) conn.logger.error(`syntax error while loading '${filename}'\n${err}`)
+    else try {
+      global.plugins[filename] = require(dir)
+    } catch (e) {
+      conn.logger.error(e)
+    } finally {
+      global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)))
+    }
+  }
+}
+Object.freeze(global.reload)
+fs.watch(path.join(__dirname, 'plugins'), global.reload)
+global.reloadHandler()
+
+// Quick Test
+async function _quickTest() {
+  let test = await Promise.all([
+    cp.spawn('ffmpeg'),
+    cp.spawn('ffprobe'),
+    cp.spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-filter_complex', 'color', '-frames:v', '1', '-f', 'webp', '-']),
+    cp.spawn('convert'),
+    cp.spawn('magick'),
+    cp.spawn('gm'),
+    cp.spawn('find', ['--version'])
+  ].map(p => {
+    return Promise.race([
+      new Promise(resolve => {
+        p.on('close', code => {
+          resolve(code !== 127)
+        })
+      }),
+      new Promise(resolve => {
+        p.on('error', _ => resolve(false))
+      })
+    ])
+  }))
+  let [ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find] = test
+  console.log(test)
+  let s = global.support = {
+    ffmpeg,
+    ffprobe,
+    ffmpegWebp,
+    convert,
+    magick,
+    gm,
+    find
+  }
+  require('./lib/sticker').support = s
+  Object.freeze(global.support)
+
+  if (!s.ffmpeg) conn.logger.warn('Please install ffmpeg for sending videos (pkg install ffmpeg)')
+  if (s.ffmpeg && !s.ffmpegWebp) conn.logger.warn('Stickers may not animated without libwebp on ffmpeg (--enable-ibwebp while compiling ffmpeg)')
+  if (!s.convert && !s.magick && !s.gm) conn.logger.warn('Stickers may not work without imagemagick if libwebp on ffmpeg doesnt isntalled (pkg install imagemagick)')
+}
+
+_quickTest()
+  .then(() => conn.logger.info('Quick Test Done'))
+  .catch(console.error)
+  
