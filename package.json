@@ -39,7 +39,7 @@
     "bugs": {
         "url": "https://github.com/sadteams/bot-md/issues"
     },
-    "license": "GPL-3.0-or-later",
+    "license": "BSL-1.0 license",
     "dependencies": {
         "@adiwajshing/baileys": "github:sadteams/baileys",
         "@adiwajshing/keyed-db": "^0.2.4",
