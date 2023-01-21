@@ -4,18 +4,15 @@ import { join, dirname } from 'path'
 import cluster from 'cluster'
 import { watchFile, unwatchFile } from 'fs'
 import cfonts from 'cfonts';
+const { say } = cfonts
 import { createInterface } from 'readline'
 import yargs from 'yargs'
+const { default: pkg } = await import('./package.json', { assert: { type: 'json' } })
+const { name, author } = pkg
+const rl = createInterface(process.stdin, process.stdout)
 import { fileURLToPath } from 'url'
-import { createRequire } from 'module'
-
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const require = createRequire(__dirname)
-
-const { name, author } = require(join(__dirname, './package.json')) 
-const { say } = cfonts
-const rl = createInterface(process.stdin, process.stdout)
 
 say('SHANO BOT', {
   font: 'simple3d',
