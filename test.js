@@ -3,14 +3,13 @@ import path, { dirname } from 'path'
 import assert from 'assert'
 import { spawn } from 'child_process'
 import syntaxError from 'syntax-error'
+const { default: pkg } = await import('../package.json', { assert: { type: 'json' } })
+const { directories } = pkg
 import { fileURLToPath } from 'url'
-import { createRequire } from 'module'
+
 
 const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-const require = createRequire(__dirname)
-
-let folders = ['.', ...Object.keys(require(path.join(__dirname, './package.json')).directories)]
+let folders = ['.', ...Object.keys(directories)]
 let files = []
 for (let folder of folders)
     for (let file of fs.readdirSync(folder).filter(v => v.endsWith('.js')))
